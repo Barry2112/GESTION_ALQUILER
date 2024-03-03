@@ -1,0 +1,208 @@
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.master.cs" Inherits="PRESENTACION.MasterPage" %>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Sistema Gestion Alquiler</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
+  <link rel="Stylesheet" href="~/style.css" type="text/css" />
+  <asp:ContentPlaceHolder ID="head" runat="server">
+  </asp:ContentPlaceHolder>
+</head>
+<body class="hold-transition sidebar-mini">
+  <form id="form1" runat="server">
+    <div class="wrapper">
+
+      <header id="headerdivvv" runat="server" class="main-header" style="height: 85px">
+        <nav class="navbar navbar-static-top" role="navigation">
+          <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button" style="width: 45px">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <div class="navbar-custom-menu">
+            <ul class="nav navbar-nav">
+              <li class="dropdown user user-menu">
+                <a id="Usuario_Menu" class="dropdown-toggle" data-toggle="dropdown" runat="server">
+                  <img src="~/Imagenes/aries_logo.png" width="60" height="60" alt="User Image" runat="server" id="imagen_U" />
+                  <span class="hidden-xs">
+                    <asp:Label ID="label_nombre_usuario" runat="server" Text="Nombre_Usuario"></asp:Label>
+                  </span>
+                </a>
+                <ul class="dropdown-menu">
+                  <li class="user-header">
+                    <img src="~/Imagenes/aries_logo.png" class="img-circle" alt="User Image" runat="server" id="imagen_min" />
+                    <p>
+                      <asp:Label ID="label_tipo_usuario_min" runat="server" Text="Tipo_Usuario"></asp:Label>
+                      <br />
+                      <asp:Label ID="label_nombre_usuario_min" runat="server" Text="Nombre_Usuario"></asp:Label> 
+                    </p>
+                  </li>
+                  <li class="user-footer">
+                    <div class="pull-left">
+                      <asp:Button ID="btn_Perfil" runat="server" Text="VER PERFIL" class="btn btn-default btn-flat" />
+                    </div>
+                    <div class="pull-right">
+                      <asp:Button ID="btn_Logout" runat="server" Text="CERRAR SESION" class="btn btn-default btn-flat" OnClick="btn_Logout_Click" />
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+
+      <aside class="main-sidebar sidebar-dark-primary elevation-4"  >
+        <div class="sidebar">
+          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+            <div class="info">
+              <a href="#" class="d-block">Aries Audiovisual Multimedia</a>
+            </div>
+          </div>
+          <nav class="mt-2">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+              <li id="GestionAlquiler" runat="server" class="nav-header">GESTION DE ALQUILER</li>
+              <li id="ModuloEquipo" runat="server" class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-tachometer-alt"></i>
+                  <p>
+                    Modulo de Equipo
+                    <i class="right fas fa-angle-left"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li id="RegistrarEquipo" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Registrar_Equipo.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Registrar Equipo</p>
+                    </a>
+                  </li>
+                  <li id="ConsultarEquipo" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Consultar_Equipo.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Consultar Equipo</p>
+                    </a>
+                  </li>
+                  <li id="GestionarEquipo" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Gestionar_Equipo.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Gestionar Equipo</p>
+                    </a>
+                  </li>
+                  <li id="AsignarEquipoTrabajador" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Asignar_Equipo_Trabajador.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Asignar Equipo Trabajador</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li id="ModuloEvento" runat="server" class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Modulo de Evento
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li id="RegistrarSolicitudEvento" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Registrar_Solicitud_de_Evento.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Registrar Solicitud de Evento</p>
+                    </a>
+                  </li>
+                  <li id="AtenderSolicitudEvento" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Atender_Solicitud_de_Evento.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Atender Solicitud de Evento</p>
+                    </a>
+                  </li>
+                  <li id="AsignarTrabajadorEvento" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Asignar_Trabajador_Evento.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Asignar Trabajador al Evento</p>
+                    </a>
+                  </li>
+                  <li id="RevisarEventoOrganizado" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Revisar_Evento_Organizado.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Revisar Evento Organizado</p>
+                    </a>
+                  </li>
+                  <li id="ReprogramarEvento" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Reprogramar_Evento.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Reprogramar Evento</p>
+                    </a>
+                  </li>
+                  <li id="CancelarEveto" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Cancelar_Evento.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Cancelar Evento</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+
+              <li id="ModuloCotizaciones" runat="server" class="nav-item">
+                <a href="#" class="nav-link">
+                  <i class="nav-icon fas fa-copy"></i>
+                  <p>
+                    Modulo de Cotizaciones
+                    <i class="fas fa-angle-left right"></i>
+                  </p>
+                </a>
+                <ul class="nav nav-treeview">
+                  <li id="GenerarCotizacion" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Generar_Cotizacion.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Generar Cotizacion</p>
+                    </a>
+                  </li>
+                  <li id="ListarCotizacion" runat="server" class="nav-item">
+                    <a href="../Gestion_Alquiler/Listar_Cotizacion.aspx" class="nav-link">
+                      <i class="far fa-circle nav-icon"></i>
+                      <p>Listar Cotizacion</p>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </aside>
+
+      <div class="content-wrapper">
+        <section class="content-header">
+        </section>
+        <section class="content">
+          <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+          </asp:ContentPlaceHolder>
+        </section>
+      </div>
+      <footer class="main-footer">
+        <div class="float-right d-none d-sm-block">
+          <b>Version</b> 1.0.2112
+        </div>
+        <strong>Copyright &copy; 2023 Aries Audiovisual Multimedia - Todos los derechos reservados.
+        </strong>
+      </footer>
+      <aside class="control-sidebar control-sidebar-dark">
+      </aside>
+    </div>
+    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../dist/js/adminlte.min.js"></script>
+    <script src="../../dist/js/demo.js"></script>
+  </form>
+</body>
+</html>
