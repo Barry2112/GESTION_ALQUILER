@@ -42,6 +42,24 @@ namespace PRESENTACION.Gestion_Alquiler
         protected global::System.Web.UI.WebControls.TextBox txt_password;
 
         /// <summary>
+        /// Control ImageButton_ShowPass.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton_ShowPass;
+
+        /// <summary>
+        /// Control ImageButton_HidePass.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ImageButton ImageButton_HidePass;
+
+        /// <summary>
         /// Control btn_Iniciar_Sesion.
         /// </summary>
         /// <remarks>

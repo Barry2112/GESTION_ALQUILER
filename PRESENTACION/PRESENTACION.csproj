@@ -126,6 +126,8 @@
     <Content Include="dist\img\credit\paypal2.png" />
     <Content Include="dist\img\credit\visa.png" />
     <Content Include="dist\img\default-150x150.png" />
+    <Content Include="dist\img\eye-hidden.png" />
+    <Content Include="dist\img\eye.png" />
     <Content Include="dist\img\icons.png" />
     <Content Include="dist\img\photo1.png" />
     <Content Include="dist\img\photo2.png" />

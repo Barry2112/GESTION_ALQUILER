@@ -37,7 +37,7 @@
     }
 
     .textbox {
-      display: block;
+      display: inline;
       width: 320px;
       height: 60px;
       outline: none;
@@ -59,7 +59,7 @@
 
     .btnIniciarSesion {
       width: 120px;
-      height: 70px;
+      height: 50px;
       font-size: 16px;
       font-weight: lighter;
       margin-left: 108px;
@@ -67,9 +67,14 @@
 
     .btnRegistrarUsuario {
       width: 180px;
-      height: 70px;
+      height: 50px;
       font-size: 16px;
       font-weight: lighter;
+    }
+
+    .btn_Ver_Contrasenia {
+      width: 180px;
+      height: 50px;
     }
   </style>
 
@@ -81,8 +86,14 @@
       <br />
       <asp:TextBox ID="txt_email" runat="server" TextMode="Email" placeholder="Ingrese su correo" class="textbox"></asp:TextBox>
       <br />
-      <asp:TextBox ID="txt_password" runat="server" TextMode="Password" placeholder="Ingrese su password" class="textbox"></asp:TextBox>
+      <div>
+        <asp:TextBox ID="txt_password" runat="server" placeholder="Ingrese su password" class="textbox"></asp:TextBox>
+        <asp:ImageButton ID="ImageButton_ShowPass" runat="server" OnClick="ImageButton_ShowPass_Click" ImageUrl="~/dist/img/eye.png" Height="30px" Width="30px" ImageAlign="AbsMiddle"/>
+        <asp:ImageButton ID="ImageButton_HidePass" runat="server" OnClick="ImageButton_HidePass_Click" ImageUrl="~/dist/img/eye-hidden.png" Height="30px" Width="30px" ImageAlign="AbsMiddle"/>
+      </div>
+
       <br />
+
       <asp:Button ID="btn_Iniciar_Sesion" runat="server" Text="INICIAR SESION" OnClick="btn_Iniciar_Sesion_Click" class="btnIniciarSesion" />
       <asp:Button ID="btn_Registrar_Usuario_Nuevo" runat="server" Text="REGISTRAR USUARIO" OnClick="btn_Registrar_Usuario_Nuevo_Click" class="btnRegistrarUsuario" />
     </div>
