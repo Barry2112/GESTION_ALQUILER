@@ -14,8 +14,8 @@
 
     .Sesion {
       position: absolute;
-      top: 80%;
-      left: 58%;
+      top: 60%;
+      left: 50%;
       transform: translateX(-50%) translateY(-92%);
       border-width: 4px;
       width: 1070px;
@@ -102,8 +102,8 @@
           </asp:RegularExpressionValidator>
         </div>
         <div class="col-md-4">
-          REGISTRE SU DIRECCION:
-                    <asp:TextBox ID="txt_direccion" runat="server" class="textbox"></asp:TextBox>
+          REGISTRE UNA DIRECCION:
+          <asp:TextBox ID="txt_direccion" runat="server" class="textbox"></asp:TextBox>
         </div>
         <div class="col-md-4">
           REGISTRE SU CORREO:
@@ -123,7 +123,7 @@
                     <asp:TextBox ID="txt_contrase_validar" runat="server" class="textbox" TextMode="Password"></asp:TextBox>
         </div>
         <div class="col-md-4">
-          REGISTRE SU IMAGEN:
+          REGISTRE SU IMAGEN DE USUARIO:
            <asp:FileUpload ID="FU_Imagen_Usuario" runat="server" Style="margin-top: 20px" />
         </div>
       </div>
@@ -132,34 +132,10 @@
     <asp:Button ID="btn_Registrar_Usuario" runat="server" Text="REGISTRAR USUARIO" class="btnRegistrarUsuario" OnClick="btn_Registrar_Usuario_Click" ValidationGroup="VG_form" />
     <br />
     <br />
+
+    <asp:Button ID="btn_Volver_Login" runat="server" Text="VOLVER A INICIAR SESION" OnClick="btn_Volver_Login_Click"/>
   </div>
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
-  <br />
+
   <br />
 
   <div class="modal fade" id="ModalError" role="dialog" style="margin-top: 46px; margin-left:98px">

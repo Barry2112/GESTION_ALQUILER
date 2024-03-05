@@ -13,6 +13,12 @@
   <link rel="Stylesheet" href="~/style.css" type="text/css" />
   <asp:ContentPlaceHolder ID="head" runat="server">
   </asp:ContentPlaceHolder>
+
+   <style>
+     .no-margin {
+        margin-left: 0px !important;
+     }
+   </style>
 </head>
 <body class="hold-transition sidebar-mini">
   <form id="form1" runat="server">
@@ -59,7 +65,7 @@
         </nav>
       </header>
 
-      <aside class="main-sidebar sidebar-dark-primary elevation-4"  >
+      <aside class="main-sidebar sidebar-dark-primary elevation-4" id="mainSidebar" runat="server">
         <div class="sidebar">
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="info">
@@ -181,7 +187,7 @@
         </div>
       </aside>
 
-      <div class="content-wrapper">
+      <div class="content-wrapper" id="contentWrapperMain" runat="server">
         <section class="content-header">
         </section>
         <section class="content">

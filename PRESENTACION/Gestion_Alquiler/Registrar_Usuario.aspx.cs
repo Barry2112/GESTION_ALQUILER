@@ -215,5 +215,11 @@ namespace PRESENTACION.Gestion_Alquiler
     {
       Response.Redirect("Iniciar_Sesion.aspx");
     }
+
+    protected void btn_Volver_Login_Click(object sender, EventArgs e)
+    {
+      Response.Redirect("Iniciar_Sesion.aspx");
+    }
+
   }
 }

@@ -159,6 +159,15 @@ namespace PRESENTACION.Gestion_Alquiler
         protected global::System.Web.UI.WebControls.Button btn_Registrar_Usuario;
 
         /// <summary>
+        /// Control btn_Volver_Login.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Volver_Login;
+
+        /// <summary>
         /// Control labelerror.
         /// </summary>
         /// <remarks>

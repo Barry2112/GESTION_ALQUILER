@@ -12,6 +12,7 @@ using System.Security.Cryptography;
 using DOMINIO;
 using NEGOCIO;
 using System.Text;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace PRESENTACION
 {
@@ -75,6 +76,9 @@ namespace PRESENTACION
       switch (ID_Tipo_Usuario)
       {
         case 0:
+          mainSidebar.Visible = false;
+          contentWrapperMain.Attributes.Add("class", "content-wrapper no-margin");
+
           btn_Logout.Visible = false;
           btn_Perfil.Visible = false;
           Usuario_Menu.Visible = false;
@@ -112,6 +116,9 @@ namespace PRESENTACION
           break;
 
         case 1:
+          mainSidebar.Visible = true;
+          contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));
+
           btn_Logout.Visible = true;
           btn_Perfil.Visible = true;
           Usuario_Menu.Visible = true;
@@ -146,6 +153,9 @@ namespace PRESENTACION
           break;
 
         case 2:
+          mainSidebar.Visible = true;
+          contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));
+
           btn_Logout.Visible = true;
           btn_Perfil.Visible = true;
           Usuario_Menu.Visible = true;
@@ -180,6 +190,9 @@ namespace PRESENTACION
           break;
 
         case 3:
+          mainSidebar.Visible = true;
+          contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));
+
           btn_Logout.Visible = true;
           btn_Perfil.Visible = true;
           Usuario_Menu.Visible = true;
@@ -214,6 +227,9 @@ namespace PRESENTACION
           break;
 
         case 4:
+          mainSidebar.Visible = true;
+          contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));
+
           btn_Logout.Visible = true;
           btn_Perfil.Visible = true;
           Usuario_Menu.Visible = true;

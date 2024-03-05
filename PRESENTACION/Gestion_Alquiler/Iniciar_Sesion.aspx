@@ -19,7 +19,7 @@
     .Sesion {
       position: absolute;
       top: 40%;
-      left: 56%;
+      left: 50%;
       transform: translateX(-50%) translateY(-50%);
 
       border-width: 4px;

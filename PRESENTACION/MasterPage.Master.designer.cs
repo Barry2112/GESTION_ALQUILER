@@ -114,6 +114,15 @@ namespace PRESENTACION
         protected global::System.Web.UI.WebControls.Button btn_Logout;
 
         /// <summary>
+        /// Control mainSidebar.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl mainSidebar;
+
+        /// <summary>
         /// Control GestionAlquiler.
         /// </summary>
         /// <remarks>
@@ -256,6 +265,15 @@ namespace PRESENTACION
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl ListarCotizacion;
+
+        /// <summary>
+        /// Control contentWrapperMain.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl contentWrapperMain;
 
         /// <summary>
         /// Control ContentPlaceHolder1.

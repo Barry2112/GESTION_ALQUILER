@@ -12,8 +12,8 @@ namespace ACCESO_DATOS
     {
         public static string Conexion()
         {
-            return "server = DESKTOP-K904IT3\\SQLEXPRESS; database = GESTION_ALQUILER; integrated security = true;"; 
-            //return "server = BARRY_2112\\SQLEXPRESS; database = GESTION_ALQUILER; integrated security = true;";
+            //return "server = DESKTOP-K904IT3\\SQLEXPRESS; database = GESTION_ALQUILER; integrated security = true;"; 
+            return "server = BARRY_2112\\SQLEXPRESS; database = GESTION_ALQUILER; integrated security = true;";
         }
     }
 }
