@@ -19,7 +19,7 @@ namespace ACCESO_DATOS
         public string Server()
         {
             //return "DESKTOP-K904IT3\\SQLEXPRESS";
-            return "server = BARRY_2112\\SQLEXPRESS";
+            return "BARRY_2112\\SQLEXPRESS";
         }
     }
 }

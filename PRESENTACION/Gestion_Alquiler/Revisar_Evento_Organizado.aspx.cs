@@ -22,6 +22,7 @@ namespace PRESENTACION.Gestion_Alquiler
     N_Evento NEvento = new N_Evento();
     N_Equipo NEquipo = new N_Equipo();
     N_Tipo_Evento NTipoEvento = new N_Tipo_Evento();
+    N_Conexion_BD NConexionBD = new N_Conexion_BD();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -136,7 +137,7 @@ namespace PRESENTACION.Gestion_Alquiler
       ReportDocument RepDoc = new ReportDocument();
       RepDoc.Load(Server.MapPath(@"~/Reportes/Acta_Conformidad.rpt"));
       RepDoc.SetParameterValue("@ID_EVENTO", ID_EVENTITO);
-      RepDoc.DataSourceConnections[0].SetConnection("BARRY_2112\\SQLEXPRESS", "GESTION_ALQUILER", true);
+      RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
       RepDoc.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Documento_Satisfaccion/Acta_Conformidad_" + ID_EVENTITO + ".pdf"));
 
       string path = Server.MapPath(@"~/Documento_Satisfaccion/Acta_Conformidad_" + ID_EVENTITO + ".pdf");
