@@ -20,6 +20,7 @@ namespace PRESENTACION.Gestion_Alquiler
     N_Evento NEvento = new N_Evento();
     N_Equipo NEquipo = new N_Equipo();
     N_Tipo_Equipo NTipoEquipo = new N_Tipo_Equipo();
+    N_Conexion_BD NConexionBD = new N_Conexion_BD();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -128,6 +129,10 @@ namespace PRESENTACION.Gestion_Alquiler
           txt_Marca_Equipo.Text = "";
           TextBox txt_Precio = (TextBox)row.Cells[6].FindControl("txt_Precio");
           txt_Precio.Text = "";
+          TextBox txt_Cantidad = (TextBox)row.Cells[7].FindControl("txt_Cantidad");
+          txt_Cantidad.Text = "";
+          TextBox txt_Subtotal = (TextBox)row.Cells[8].FindControl("txt_Subtotal");
+          txt_Subtotal.Text = "";
         }
         else
         {
@@ -165,6 +170,10 @@ namespace PRESENTACION.Gestion_Alquiler
           txt_Marca_Equipo.Text = "";
           TextBox txt_Precio = (TextBox)row.Cells[6].FindControl("txt_Precio");
           txt_Precio.Text = "";
+          TextBox txt_Cantidad = (TextBox)row.Cells[7].FindControl("txt_Cantidad");
+          txt_Cantidad.Text = "";
+          TextBox txt_Subtotal = (TextBox)row.Cells[8].FindControl("txt_Subtotal");
+          txt_Subtotal.Text = "";
 
           CalcularTotal();
         }
@@ -184,10 +193,39 @@ namespace PRESENTACION.Gestion_Alquiler
             txt_Marca_Equipo.Text = Convert.ToString(filaA[1]);
             TextBox txt_Precio = (TextBox)row.Cells[6].FindControl("txt_Precio");
             txt_Precio.Text = Convert.ToString(filaA[3]);
+
+            TextBox txt_Cantidad = (TextBox)row.Cells[7].FindControl("txt_Cantidad");
+            txt_Cantidad.Text = "1";
+            TextBox txt_Subtotal = (TextBox)row.Cells[8].FindControl("txt_Subtotal");
+            txt_Subtotal.Text = Convert.ToString(filaA[3]);
           }
 
           CalcularTotal();
         }
+      }
+      catch
+      {
+      }
+    }
+
+    protected void txt_Cantidad_TextChanged(object sender, EventArgs e)
+    {
+      try
+      {
+        TextBox textBoxCantidad = (TextBox)sender;
+        GridViewRow row = (GridViewRow)textBoxCantidad.Parent.Parent;
+
+        TextBox txt_Precio = (TextBox)row.Cells[6].FindControl("txt_Precio");
+        TextBox txt_Cantidad = (TextBox)row.Cells[7].FindControl("txt_Cantidad");
+        TextBox txt_Subtotal = (TextBox)row.Cells[8].FindControl("txt_Subtotal");
+
+        var precio = Double.Parse(txt_Precio.Text);
+        var cantidad = Double.Parse(txt_Cantidad.Text);
+        var subtotal = precio * cantidad;
+
+        txt_Subtotal.Text = subtotal.ToString();
+
+        CalcularTotal();
       }
       catch
       {
@@ -245,6 +283,11 @@ namespace PRESENTACION.Gestion_Alquiler
                 TextBox txt_Precio = GV_Cotizacion.Rows[i].Cells[6].FindControl("txt_Precio") as TextBox;
                 DOC.Precio_Equipo = txt_Precio.Text;
 
+                TextBox txt_Cantidad = GV_Cotizacion.Rows[i].Cells[7].FindControl("txt_Cantidad") as TextBox;
+                DOC.Cantidad = txt_Cantidad.Text;
+                TextBox txt_Subtotal = GV_Cotizacion.Rows[i].Cells[6].FindControl("txt_Subtotal") as TextBox;
+                DOC.Subtotal = txt_Subtotal.Text;
+
                 if (dt == null)
                 {
                   dt = new DataTable("Tabla");
@@ -254,8 +297,10 @@ namespace PRESENTACION.Gestion_Alquiler
                   dt.Columns.Add("4");
                   dt.Columns.Add("5");
                   dt.Columns.Add("6");
+                  dt.Columns.Add("7");
+                  dt.Columns.Add("8");
                 }
-                dt.LoadDataRow(new object[] { DOC.ID_Tipo_Equipo, DOC.ID_Codigo_Equipo, DOC.Nombre_Equipo, DOC.Marca_Equipo, DOC.Trabajador_Equipo, DOC.Precio_Equipo }, true);
+                dt.LoadDataRow(new object[] { DOC.ID_Tipo_Equipo, DOC.ID_Codigo_Equipo, DOC.Nombre_Equipo, DOC.Marca_Equipo, DOC.Trabajador_Equipo, DOC.Precio_Equipo, DOC.Cantidad, DOC.Subtotal }, true);
               }
             }
             Session["CACHEDATA2"] = dt;
@@ -296,6 +341,11 @@ namespace PRESENTACION.Gestion_Alquiler
               txt_Marca_Equipo.Text = dt.Rows[i].Field<String>(3);
               TextBox txt_Precio = GV_Cotizacion.Rows[i].Cells[6].FindControl("txt_Precio") as TextBox;
               txt_Precio.Text = dt.Rows[i].Field<String>(5);
+
+              TextBox txt_Cantidad = GV_Cotizacion.Rows[i].Cells[7].FindControl("txt_Cantidad") as TextBox;
+              txt_Cantidad.Text = dt.Rows[i].Field<String>(6);
+              TextBox txt_Subtotal = GV_Cotizacion.Rows[i].Cells[8].FindControl("txt_Subtotal") as TextBox;
+              txt_Subtotal.Text = dt.Rows[i].Field<String>(7);
             }
             Session["CACHEDATA2"] = null;
             DataTable dteliminar = (DataTable)Session["CACHEDATA2"];
@@ -324,7 +374,7 @@ namespace PRESENTACION.Gestion_Alquiler
 
       if (cant == 1)
       {
-        labelerror.Text = "ADVERTENCIA: No puede generar cotizacion si la fila " + row + " no esta lleno.";
+        labelerror.Text = "ADVERTENCIA: No puede generar cotizacion si la fila " + row + " no esta llena.";
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $('#ModalError').modal('show');", true);
       }
       else
@@ -345,6 +395,11 @@ namespace PRESENTACION.Gestion_Alquiler
           TextBox txt_Precio = GV_Cotizacion.Rows[i].Cells[6].FindControl("txt_Precio") as TextBox;
           DOC.Precio_Equipo = txt_Precio.Text;
 
+          TextBox txt_Cantidad = GV_Cotizacion.Rows[i].Cells[7].FindControl("txt_Cantidad") as TextBox;
+          DOC.Cantidad = txt_Cantidad.Text;
+          TextBox txt_Subtotal = GV_Cotizacion.Rows[i].Cells[8].FindControl("txt_Subtotal") as TextBox;
+          DOC.Subtotal = txt_Subtotal.Text;
+
           if (dt == null)
           {
             dt = new DataTable("Tabla");
@@ -354,8 +409,10 @@ namespace PRESENTACION.Gestion_Alquiler
             dt.Columns.Add("4");
             dt.Columns.Add("5");
             dt.Columns.Add("6");
+            dt.Columns.Add("7");
+            dt.Columns.Add("8");
           }
-          dt.LoadDataRow(new object[] { DOC.ID_Tipo_Equipo, DOC.ID_Codigo_Equipo, DOC.Nombre_Equipo, DOC.Marca_Equipo, DOC.Trabajador_Equipo, DOC.Precio_Equipo }, true);
+          dt.LoadDataRow(new object[] { DOC.ID_Tipo_Equipo, DOC.ID_Codigo_Equipo, DOC.Nombre_Equipo, DOC.Marca_Equipo, DOC.Trabajador_Equipo, DOC.Precio_Equipo, DOC.Cantidad, DOC.Subtotal }, true);
         }
 
         Session["CACHEDATA1"] = dt;
@@ -395,6 +452,11 @@ namespace PRESENTACION.Gestion_Alquiler
           txt_Marca_Equipo.Text = dt.Rows[i].Field<String>(3);
           TextBox txt_Precio = GV_Cotizacion.Rows[i].Cells[6].FindControl("txt_Precio") as TextBox;
           txt_Precio.Text = dt.Rows[i].Field<String>(5);
+
+          TextBox txt_Cantidad = GV_Cotizacion.Rows[i].Cells[7].FindControl("txt_Cantidad") as TextBox;
+          txt_Cantidad.Text = dt.Rows[i].Field<String>(6);
+          TextBox txt_Subtotal = GV_Cotizacion.Rows[i].Cells[8].FindControl("txt_Subtotal") as TextBox;
+          txt_Subtotal.Text = dt.Rows[i].Field<String>(7);
         }
         Session["CACHEDATA1"] = null;
       }
@@ -408,10 +470,12 @@ namespace PRESENTACION.Gestion_Alquiler
       foreach (GridViewRow row in GV_Cotizacion.Rows)
       {
 
-        TextBox txt_Precio = row.Cells[6].FindControl("txt_Precio") as TextBox;
-        if (!txt_Precio.Text.Equals(""))
+        //TextBox txt_Precio = row.Cells[6].FindControl("txt_Precio") as TextBox
+        TextBox txt_Subtotal = row.Cells[8].FindControl("txt_Subtotal") as TextBox;
+
+        if (!txt_Subtotal.Text.Equals(""))
         {
-          sub = Convert.ToDouble(txt_Precio.Text);
+          sub = Convert.ToDouble(txt_Subtotal.Text);
           TOTALFINAL = TOTALFINAL + sub;
         }
         TOTALFINAL = TOTALFINAL + (TOTALFINAL * (18 / 100));
@@ -444,7 +508,7 @@ namespace PRESENTACION.Gestion_Alquiler
 
       if (cant == 1)
       {
-        labelerror.Text = "ADVERTENCIA: No puede generar cotizacion si la fila " + row + " no esta lleno.";
+        labelerror.Text = "ADVERTENCIA: No puede generar cotizacion si la fila " + row + " no esta llena.";
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $('#ModalError').modal('show');", true);
       }
       else
@@ -460,21 +524,37 @@ namespace PRESENTACION.Gestion_Alquiler
           ID_Cotizacion = Convert.ToInt32(Cotizacion_key);
         }
 
+        //GUARDA DETALLES DE LA COTIZACION
         for (int i = 0; i < Int32.Parse(GV_Cotizacion.Rows.Count.ToString()); i++)
         {
           DropDownList DDL_Tipo_Equipo = GV_Cotizacion.Rows[i].Cells[1].FindControl("DDL_Tipo_Equipo") as DropDownList;
           DropDownList DDL_Codigo_Equipo = GV_Cotizacion.Rows[i].Cells[2].FindControl("DDL_Codigo_Equipo") as DropDownList;
+          TextBox txt_Precio = GV_Cotizacion.Rows[i].Cells[6].FindControl("txt_Precio") as TextBox;
+          TextBox txt_Cantidad = GV_Cotizacion.Rows[i].Cells[7].FindControl("txt_Cantidad") as TextBox;
+          TextBox txt_Subtotal = GV_Cotizacion.Rows[i].Cells[8].FindControl("txt_Subtotal") as TextBox;
 
           int ID_Tipo_Equipo = Convert.ToInt32(DDL_Tipo_Equipo.SelectedValue);
           int ID_Equipo = Convert.ToInt32(DDL_Codigo_Equipo.SelectedValue);
+          int cantidad = Convert.ToInt32(txt_Cantidad.Text);
+          double precio_unitario = Convert.ToDouble(txt_Precio.Text);
+          double sub_total = Convert.ToDouble(txt_Subtotal.Text);
 
-          NEvento.Registrar_Cotizacion(ID_Cotizacion, ID_Tipo_Equipo, ID_Equipo);
+          NEvento.Registrar_Cotizacion(ID_Cotizacion, ID_Tipo_Equipo, ID_Equipo, cantidad, precio_unitario, sub_total);
         }
 
+        //GUARDA DATOS PRINCIPALES DE LA COTIZACION
+        double numero_IGV = 18;
+        double sub_total_x = Convert.ToDouble(LabelSUBTOTAL.Text);
+        double total_IGV = Convert.ToDouble(LabelIGV.Text);
+        double total = Convert.ToDouble(LabelTOTAL.Text);
+
+        NEvento.Registrar_Datos_Cotizacion(ID_Cotizacion, numero_IGV, sub_total_x, total_IGV, total);
+
+        //GUARDA LA COTIZACION
         ReportDocument RepDoc = new ReportDocument();
         RepDoc.Load(Server.MapPath(@"~/Reportes/Cotizacion.rpt"));
         RepDoc.SetParameterValue("@ID_COTIZACION", ID_Cotizacion);
-        RepDoc.DataSourceConnections[0].SetConnection("BARRY_2112\\SQLEXPRESS", "GESTION_ALQUILER", true);
+        RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
         RepDoc.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Cotizacion/Cotizacion_" + ID_Cotizacion + ".pdf"));
         FileStream fstream = new FileStream(Server.MapPath(@"~/Cotizacion/Cotizacion_" + ID_Cotizacion + ".pdf"), FileMode.Open);
         BinaryReader binaryReader = new BinaryReader(fstream);
@@ -483,7 +563,9 @@ namespace PRESENTACION.Gestion_Alquiler
         DO_Reporte_Cotizacion DORC = new DO_Reporte_Cotizacion();
         DORC.Cotizacion = bytes;
         fstream.Close();
+        
         NEvento.Guardar_Reporte_Cotizacion(ID_Cotizacion, DORC);
+
         Session["Diego"] = "~/Cotizacion/Cotizacion_" + ID_Cotizacion + ".pdf";
 
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $('#ModalGenerarCotizacionExitosa').modal('show');", true);
@@ -522,5 +604,6 @@ namespace PRESENTACION.Gestion_Alquiler
       }
     }
 
+    
   }
 }

@@ -1,0 +1,78 @@
+ALTER TABLE Detalle_Cotizacion ADD cantidad int;
+ALTER TABLE Detalle_Cotizacion ADD precio_unitario decimal(18,2);
+ALTER TABLE Detalle_Cotizacion ADD sub_total decimal(18,2);
+
+ALTER TABLE Cotizacion ADD numero_IGV decimal(18,2);
+ALTER TABLE Cotizacion ADD sub_total decimal(18,2);
+ALTER TABLE Cotizacion ADD total_IGV decimal(18,2);
+ALTER TABLE Cotizacion ADD total decimal(18,2);
+
+
+ALTER PROC [dbo].[SP_REGISTRAR_COTIZACION]
+@ID_COTIZACION int,
+@ID_TIPO_EQUIPO int,
+@ID_EQUIPO int,
+@CANTIDAD int, 
+@PRECIO_UNITARIO decimal(18,2),
+@SUB_TOTAL decimal(18,2)
+AS
+BEGIN
+	INSERT INTO DETALLE_COTIZACION(ID_Cotizacion, ID_Tipo_Equipo, ID_Equipo, cantidad, precio_unitario, sub_total)
+	VALUES(@ID_COTIZACION, @ID_TIPO_EQUIPO, @ID_EQUIPO, @CANTIDAD, @PRECIO_UNITARIO, @SUB_TOTAL );
+END
+GO
+
+
+CREATE PROC [dbo].[SP_REGISTRAR_DATOS_COTIZACION] 
+@ID_COTIZACION int,
+@NUMERO_IGV decimal(18,2),
+@SUB_TOTAL decimal(18,2),
+@TOTAL_IGV decimal(18,2),
+@TOTAL decimal(18,2)
+AS
+BEGIN
+	INSERT INTO COTIZACION(ID_Cotizacion, Fecha, numero_IGV, sub_total, total_IGV, total ) VALUES (@ID_COTIZACION, GETDATE(), @NUMERO_IGV, @SUB_TOTAL, @TOTAL_IGV, @TOTAL );
+END
+
+GO
+
+
+
+ALTER PROC [dbo].[SP_REGISTRAR_REPORTE_COTIZACION] 
+@ID_COTIZACION int,
+@COTIZACION varbinary(max)
+AS
+BEGIN
+	UPDATE COTIZACION SET Cotizacion = @COTIZACION WHERE @ID_Cotizacion =  @ID_COTIZACION;
+END
+
+GO
+
+
+ALTER PROC [dbo].[SP_COTIZACION]
+@ID_COTIZACION int
+AS
+BEGIN 
+	SELECT 
+		TE.Descripcion_Tipo_Equipo, 
+		E.Codigo_Equipo, 
+		E.Nombre_Equipo, 
+		ME.Descripcion_Marca_Equipo, 
+		E.Precio_Equipo,
+		ISNULL(DC.cantidad,0) as Cantidad,
+		ISNULL(DC.precio_unitario,0) as Precio_unitario,
+		ISNULL(DC.sub_total,0) as Sub_total,
+
+		ISNULL(C.numero_IGV,0) as numero_IGV,
+		ISNULL(C.sub_total,0) as sub_total_principal, 
+		ISNULL(C.total_IGV,0) as total_IGV,
+		ISNULL(C.total,0) as total 
+	FROM Detalle_Cotizacion DC
+		INNER JOIN Tipo_Equipo TE	ON DC.ID_Tipo_Equipo = TE.ID_Tipo_Equipo
+		INNER JOIN Equipo E			ON DC.ID_Equipo = E.ID_Equipo
+		INNER JOIN Marca_Equipo ME	ON E.ID_Marca_Equipo = ME.ID_Marca_Equipo
+		LEFT JOIN Cotizacion C ON DC.ID_Cotizacion = C.ID_Cotizacion 
+	WHERE DC.ID_Cotizacion = @ID_COTIZACION
+END 
+
+GO

@@ -51,15 +51,6 @@ namespace PRESENTACION
         protected global::System.Web.UI.HtmlControls.HtmlAnchor Usuario_Menu;
 
         /// <summary>
-        /// Control imagen_U.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlImage imagen_U;
-
-        /// <summary>
         /// Control label_nombre_usuario.
         /// </summary>
         /// <remarks>
@@ -67,6 +58,15 @@ namespace PRESENTACION
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Label label_nombre_usuario;
+
+        /// <summary>
+        /// Control imagen_U.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlImage imagen_U;
 
         /// <summary>
         /// Control imagen_min.

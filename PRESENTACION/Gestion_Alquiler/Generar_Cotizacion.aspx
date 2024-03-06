@@ -98,6 +98,18 @@
                   <asp:TextBox ID="txt_Precio" runat="server" ReadOnly="true" Class="form-control" ItemStyle-HorizontalAlign="Center" HeaderStyle-CssClass="text-center"></asp:TextBox>
                 </ItemTemplate>
               </asp:TemplateField>
+
+              <asp:TemplateField HeaderText="Cantidad">
+              <ItemTemplate>
+                <asp:TextBox ID="txt_Cantidad" runat="server" Class="form-control" ItemStyle-HorizontalAlign="Center" HeaderStyle-CssClass="text-center" TextMode="Number" min="1" OnTextChanged="txt_Cantidad_TextChanged" AutoPostBack="true"></asp:TextBox>
+              </ItemTemplate>
+            </asp:TemplateField>
+              <asp:TemplateField HeaderText="Sub-Total">
+                <ItemTemplate>
+                  <asp:TextBox ID="txt_Subtotal" runat="server" ReadOnly="true" Class="form-control" ItemStyle-HorizontalAlign="Center" HeaderStyle-CssClass="text-center"></asp:TextBox>
+                </ItemTemplate>
+              </asp:TemplateField>
+
               <asp:TemplateField>
                 <ItemTemplate>
                   <asp:Button ID="btn_Borrar" runat="server" Text="Borrar" CommandName="Eliminar" class="btn btn-danger" CommandArgument="<%# ((GridViewRow) Container).RowIndex %>" />
@@ -111,30 +123,46 @@
       <br />
       <br />
 
-      <div id="posSUBTOTAL" style="margin-left: 640px;">
-        SUBTOTAL: 
-      <asp:Label ID="LabelSUBTOTAL" runat="server" Text="LabelSUBTOTAL" Style="margin-left: 130px"></asp:Label>
+      <div id="posSUBTOTAL" class="row">
+          <div class="col-sm-9"></div>
+          <div class="col-sm-3">
+            <div class="row">
+            <div class="col-sm-6 text-right">SUBTOTAL (S/.):</div>
+            <div class="col-sm-6 text-right">
+              <asp:Label ID="LabelSUBTOTAL" runat="server" Text="LabelSUBTOTAL"></asp:Label>
+            </div>
+            </div>
+          </div> 
+      </div>
+
+      <div id="posIGV" class="row">
+        <div class="col-sm-9"></div>
+        <div class="col-sm-3">
+            <div class="row">
+            <div class="col-sm-6 text-right">IGV 18% (S/.):</div>
+            <div class="col-sm-6 text-right">
+              <asp:Label ID="LabelIGV" runat="server" Text="LabelIGV"></asp:Label>
+            </div>
+            </div>
+        </div>
+      </div>
+
+      <div id="posTOTAL" class="row">
+        <div class="col-sm-9"></div>
+        <div class="col-sm-3">
+            <div class="row">
+              <div class="col-sm-6 text-right">TOTAL (S/.):</div>
+              <div class="col-sm-6 text-right">
+                <asp:Label ID="LabelTOTAL" runat="server" Text="LabelTOTAL"></asp:Label>
+              </div>
+            </div>
+        </div>          
       </div>
 
       <br />
       <br />
-
-      <div id="posIGV" style="margin-left: 640px;">
-        IGV: 
-      <asp:Label ID="LabelIGV" runat="server" Text="LabelIGV" Style="margin-left: 180px"></asp:Label>
-      </div>
-
-      <br />
       <br />
 
-      <div id="posTOTAL" style="margin-left: 640px;">
-        TOTAL: 
-      <asp:Label ID="LabelTOTAL" runat="server" Text="LabelTOTAL" Style="margin-left: 160px"></asp:Label>
-      </div>
-
-      <br />
-      <br />
-      <br />
       <div>
         <div class="row">
           <div class="col-md-1"></div>

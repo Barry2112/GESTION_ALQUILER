@@ -2494,6 +2494,7 @@
     <Folder Include="Imagenes\Equipos\" />
     <Folder Include="Imagenes\Usuarios\" />
     <Folder Include="Nota_Credito\" />
+    <Folder Include="SQL\" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />

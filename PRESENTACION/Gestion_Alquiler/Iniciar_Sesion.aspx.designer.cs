@@ -60,15 +60,6 @@ namespace PRESENTACION.Gestion_Alquiler
         protected global::System.Web.UI.WebControls.ImageButton ImageButton_HidePass;
 
         /// <summary>
-        /// Control btn_Iniciar_Sesion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Iniciar_Sesion;
-
-        /// <summary>
         /// Control btn_Registrar_Usuario_Nuevo.
         /// </summary>
         /// <remarks>
@@ -76,6 +67,15 @@ namespace PRESENTACION.Gestion_Alquiler
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btn_Registrar_Usuario_Nuevo;
+
+        /// <summary>
+        /// Control btn_Iniciar_Sesion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Iniciar_Sesion;
 
         /// <summary>
         /// Control labelerror.

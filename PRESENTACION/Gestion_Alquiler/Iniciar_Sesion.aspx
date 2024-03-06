@@ -62,7 +62,6 @@
       height: 50px;
       font-size: 16px;
       font-weight: lighter;
-      margin-left: 108px;
     }
 
     .btnRegistrarUsuario {
@@ -70,6 +69,7 @@
       height: 50px;
       font-size: 16px;
       font-weight: lighter;
+      margin-left: 108px;
     }
 
     .btn_Ver_Contrasenia {
@@ -94,8 +94,8 @@
 
       <br />
 
-      <asp:Button ID="btn_Iniciar_Sesion" runat="server" Text="INICIAR SESION" OnClick="btn_Iniciar_Sesion_Click" class="btnIniciarSesion" />
       <asp:Button ID="btn_Registrar_Usuario_Nuevo" runat="server" Text="REGISTRAR USUARIO" OnClick="btn_Registrar_Usuario_Nuevo_Click" class="btnRegistrarUsuario" />
+      <asp:Button ID="btn_Iniciar_Sesion" runat="server" Text="INICIAR SESION" OnClick="btn_Iniciar_Sesion_Click" class="btnIniciarSesion" />
     </div>
   </div>
 

@@ -14,5 +14,8 @@ namespace DOMINIO
         public string Marca_Equipo { get; set; }
         public string Trabajador_Equipo { get; set; }
         public string Precio_Equipo { get; set; }
+        public string Cantidad { get; set; }
+        public string Subtotal { get; set; }
+
     }
 }

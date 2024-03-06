@@ -75,6 +75,7 @@ namespace PRESENTACION
     {
       switch (ID_Tipo_Usuario)
       {
+        //DESLOGEADO
         case 0:
           mainSidebar.Visible = false;
           contentWrapperMain.Attributes.Add("class", "content-wrapper no-margin");
@@ -115,6 +116,7 @@ namespace PRESENTACION
 
           break;
 
+        //CLIENTE
         case 1:
           mainSidebar.Visible = true;
           contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));
@@ -152,6 +154,7 @@ namespace PRESENTACION
           */
           break;
 
+          //TRABAJADOR
         case 2:
           mainSidebar.Visible = true;
           contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));
@@ -189,6 +192,7 @@ namespace PRESENTACION
           */
           break;
 
+        //ENCARGADO DE ALMACEN
         case 3:
           mainSidebar.Visible = true;
           contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));
@@ -226,6 +230,7 @@ namespace PRESENTACION
           */
           break;
 
+        //ADMINISTRADOR
         case 4:
           mainSidebar.Visible = true;
           contentWrapperMain.Attributes.Add("class", contentWrapperMain.Attributes["class"].ToString().Replace("no-margin", ""));

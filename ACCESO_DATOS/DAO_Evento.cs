@@ -367,7 +367,7 @@ namespace ACCESO_DATOS
             }
         }
 
-        public void Registrar_Cotizacion(int ID_Cotizacion, int ID_Tipo_Equipo, int ID_Equipo)
+        public void Registrar_Cotizacion(int ID_Cotizacion, int ID_Tipo_Equipo, int ID_Equipo, int cantidad, double precio_unitario, double sub_total)
         {
             try
             {
@@ -376,7 +376,33 @@ namespace ACCESO_DATOS
                 _conn.Open();
                 _Com.Parameters.AddWithValue("@ID_COTIZACION", ID_Cotizacion);
                 _Com.Parameters.AddWithValue("@ID_TIPO_EQUIPO", ID_Tipo_Equipo);
-                _Com.Parameters.AddWithValue("@ID_EQUIPO", ID_Equipo); 
+                _Com.Parameters.AddWithValue("@ID_EQUIPO", ID_Equipo);
+
+                _Com.Parameters.AddWithValue("@CANTIDAD", cantidad);
+                _Com.Parameters.AddWithValue("@PRECIO_UNITARIO ", precio_unitario);
+                _Com.Parameters.AddWithValue("@SUB_TOTAL", sub_total);
+                _Com.ExecuteNonQuery();
+                _conn.Close();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void Registrar_Datos_Cotizacion(int ID_Cotizacion, double numero_IGV, double sub_total, double total_IGV, double total)
+        {
+            try
+            {
+                SqlCommand _Com = new SqlCommand("SP_REGISTRAR_DATOS_COTIZACION", _conn);
+                _Com.CommandType = System.Data.CommandType.StoredProcedure;
+                _conn.Open();
+                _Com.Parameters.AddWithValue("@ID_COTIZACION", ID_Cotizacion);
+                _Com.Parameters.AddWithValue("@NUMERO_IGV", numero_IGV);
+                _Com.Parameters.AddWithValue("@SUB_TOTAL", sub_total);
+                _Com.Parameters.AddWithValue("@TOTAL_IGV", total_IGV);
+                _Com.Parameters.AddWithValue("@TOTAL", total);
+
                 _Com.ExecuteNonQuery();
                 _conn.Close();
             }
@@ -395,6 +421,7 @@ namespace ACCESO_DATOS
                 _conn.Open();
                 _Com.Parameters.AddWithValue("@ID_COTIZACION", ID_Cotizacion);
                 _Com.Parameters.AddWithValue("@COTIZACION", DORC.Cotizacion);
+
                 _Com.ExecuteNonQuery();
                 _conn.Close();
             }

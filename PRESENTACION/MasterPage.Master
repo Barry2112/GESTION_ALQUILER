@@ -35,11 +35,11 @@
           <div class="navbar-custom-menu">
             <ul class="nav navbar-nav">
               <li class="dropdown user user-menu">
-                <a id="Usuario_Menu" class="dropdown-toggle" data-toggle="dropdown" runat="server">
-                  <img src="~/Imagenes/aries_logo.png" width="60" height="60" alt="User Image" runat="server" id="imagen_U" />
+                <a id="Usuario_Menu" class="dropdown-toggle" data-toggle="dropdown" runat="server" href="javascript:void(0);">
                   <span class="hidden-xs">
                     <asp:Label ID="label_nombre_usuario" runat="server" Text="Nombre_Usuario"></asp:Label>
                   </span>
+                  <img src="~/Imagenes/aries_logo.png" width="50" height="50" alt="User Image" runat="server" id="imagen_U" />
                 </a>
                 <ul class="dropdown-menu">
                   <li class="user-header">

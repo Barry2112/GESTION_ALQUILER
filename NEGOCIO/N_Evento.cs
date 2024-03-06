@@ -98,9 +98,14 @@ namespace NEGOCIO
             return _Dat.Obtener_ID_Cotizacion();
         }
 
-        public void Registrar_Cotizacion(int ID_Cotizacion, int ID_Tipo_Equipo, int ID_Equipo)
+        public void Registrar_Cotizacion(int ID_Cotizacion, int ID_Tipo_Equipo, int ID_Equipo, int cantidad, double precio_unitario, double sub_total)
         {
-            _Dat.Registrar_Cotizacion(ID_Cotizacion, ID_Tipo_Equipo, ID_Equipo);
+            _Dat.Registrar_Cotizacion(ID_Cotizacion, ID_Tipo_Equipo, ID_Equipo, cantidad, precio_unitario, sub_total);
+        }
+
+        public void Registrar_Datos_Cotizacion(int ID_Cotizacion, double numero_IGV, double sub_total, double total_IGV, double total)
+        {
+            _Dat.Registrar_Datos_Cotizacion(ID_Cotizacion, numero_IGV, sub_total, total_IGV, total);
         }
 
         public void Guardar_Reporte_Cotizacion(int ID_Cotizacion, DO_Reporte_Cotizacion DORC)
