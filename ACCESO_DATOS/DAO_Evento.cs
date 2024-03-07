@@ -94,6 +94,24 @@ namespace ACCESO_DATOS
             }
         }
 
+        public DataTable Cargar_Detalles_Cotizacion(int ID_Cotizacion)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlCommand _comm = new SqlCommand("SP_LISTAR_DETALLES_COTIZACION", _conn);
+                _comm.CommandType = CommandType.StoredProcedure;
+                _comm.Parameters.AddWithValue("@ID_COTIZACION", ID_Cotizacion);
+                SqlDataAdapter sda = new SqlDataAdapter(_comm);
+                sda.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void Registrar_Evento_X_Tipo_Equipo(DO_Evento_X_Tipo_Equipo DOETE)
         {
             try

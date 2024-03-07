@@ -66,21 +66,34 @@ namespace PRESENTACION.Gestion_Alquiler
 
     protected void GV_Gestionar_Solicitud_Evento_RowCommand(object sender, GridViewCommandEventArgs e)
     {
-      DO_Evento DOE = new DO_Evento();
+      //DO_Evento DOE = new DO_Evento();
 
       int rowIndex = int.Parse(e.CommandArgument.ToString());
       object obj = GV_Listar_Cotizacion.DataKeys[rowIndex][0];
       string id_solicitud_evento = obj.ToString();
-      int ID_Evento = Convert.ToInt32(id_solicitud_evento);
-      //Label_ID_Evento.Text = id_solicitud_evento.ToString();
+      int ID_Cotizacion = Convert.ToInt32(id_solicitud_evento);
 
       switch (e.CommandName)
       {
         case "REVISAR_SOLICITUD":
 
-          Session["Diego"] = "~/Cotizacion/" + "Cotizacion" + "_" + ID_Evento + ".pdf";
+          Session["Diego"] = "~/Cotizacion/" + "Cotizacion" + "_" + ID_Cotizacion + ".pdf";
           string _open = "window.open('Reporte.aspx', '_blank');";
           ScriptManager.RegisterStartupScript(this, this.GetType(), Guid.NewGuid().ToString(), _open, true);
+
+          break;
+        case "VER_DETALLES":
+          string script = "$('#popupVerDetallesCotizacion').modal('show');";
+          ClientScript.RegisterStartupScript(this.GetType(), "Popup", script, true);
+
+          txtCotizacionSeleccionada.Text          = GV_Listar_Cotizacion.Rows[rowIndex].Cells[1].Text;
+          txtCotizacionSeleccionadaFecha.Text     = GV_Listar_Cotizacion.Rows[rowIndex].Cells[2].Text;
+          txtCotizacionSeleccionadaSubtotal.Text  = GV_Listar_Cotizacion.Rows[rowIndex].Cells[3].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[3].Text;
+          txtCotizacionSeleccionadaTotalIGV.Text  = GV_Listar_Cotizacion.Rows[rowIndex].Cells[4].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[4].Text;
+          txtCotizacionSeleccionadaTotal.Text     = GV_Listar_Cotizacion.Rows[rowIndex].Cells[5].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[5].Text;
+
+          GV_Detalles_Cotizacion.DataSource = NEvento.Cargar_Detalles_Cotizacion(ID_Cotizacion);
+          GV_Detalles_Cotizacion.DataBind();
 
           break;
       }

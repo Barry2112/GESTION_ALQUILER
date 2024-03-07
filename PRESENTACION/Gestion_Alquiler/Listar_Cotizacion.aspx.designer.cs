@@ -15,6 +15,60 @@ namespace PRESENTACION.Gestion_Alquiler
     {
 
         /// <summary>
+        /// Control txtCotizacionSeleccionada.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCotizacionSeleccionada;
+
+        /// <summary>
+        /// Control txtCotizacionSeleccionadaFecha.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCotizacionSeleccionadaFecha;
+
+        /// <summary>
+        /// Control txtCotizacionSeleccionadaSubtotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCotizacionSeleccionadaSubtotal;
+
+        /// <summary>
+        /// Control txtCotizacionSeleccionadaTotalIGV.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCotizacionSeleccionadaTotalIGV;
+
+        /// <summary>
+        /// Control txtCotizacionSeleccionadaTotal.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtCotizacionSeleccionadaTotal;
+
+        /// <summary>
+        /// Control GV_Detalles_Cotizacion.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GV_Detalles_Cotizacion;
+
+        /// <summary>
         /// Control DIV_Gestionar_Equipo.
         /// </summary>
         /// <remarks>

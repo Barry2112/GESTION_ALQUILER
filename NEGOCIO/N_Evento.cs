@@ -97,6 +97,10 @@ namespace NEGOCIO
         {
             return _Dat.Obtener_ID_Cotizacion();
         }
+        public DataTable Cargar_Detalles_Cotizacion(int ID_Cotizacion)
+        {
+            return _Dat.Cargar_Detalles_Cotizacion(ID_Cotizacion);
+        }
 
         public void Registrar_Cotizacion(int ID_Cotizacion, int ID_Tipo_Equipo, int ID_Equipo, int cantidad, double precio_unitario, double sub_total)
         {

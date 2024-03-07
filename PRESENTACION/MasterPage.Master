@@ -79,7 +79,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                    Modulo de Equipo
+                    Equipos
                     <i class="right fas fa-angle-left"></i>
                   </p>
                 </a>
@@ -115,7 +115,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
-                    Modulo de Evento
+                    Eventos
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
@@ -163,7 +163,7 @@
                 <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-copy"></i>
                   <p>
-                    Modulo de Cotizaciones
+                    Cotizaciones
                     <i class="fas fa-angle-left right"></i>
                   </p>
                 </a>
@@ -177,7 +177,7 @@
                   <li id="ListarCotizacion" runat="server" class="nav-item">
                     <a href="../Gestion_Alquiler/Listar_Cotizacion.aspx" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>Listar Cotizacion</p>
+                      <p>Listar Cotizaciones</p>
                     </a>
                   </li>
                 </ul>
