@@ -1,0 +1,33 @@
+
+DROP PROCEDURE IF EXISTS SP_CARGAR_EVENTO_ORGANIZADO_X_TIPOYFECHA;
+GO
+
+CREATE PROCEDURE SP_CARGAR_EVENTO_ORGANIZADO_X_TIPOYFECHA
+	@Tipo_Evento int,
+	@Fechaini date,
+	@Fechafin date
+AS
+BEGIN
+	DECLARE @FechaExiste int;
+	SET @FechaExiste = IIF(@Fechaini is not null,1,0);
+
+	IF(@FechaExiste = 1) BEGIN
+			(SELECT E.ID_Evento, TE.Descripcion_Tipo_Evento, CONCAT(E.Nombres, ' ', E.Apellidos) Cliente,
+				E.DNI,  E.Correo, E.Celular, FORMAT( E.Fecha, 'yyyy-MM-dd HH:mm:ss') Fecha
+			FROM EVENTO E
+				INNER JOIN Tipo_Evento TE ON E.ID_Tipo_Evento = TE.ID_Tipo_Evento
+			WHERE E.ID_Estado_Evento = 6
+			AND E.ID_Tipo_Evento = (CASE WHEN @Tipo_Evento = -1 THEN E.ID_Tipo_Evento ELSE @Tipo_Evento END)
+			AND E.Fecha BETWEEN @Fechaini AND @Fechafin)
+	END 
+	ELSE BEGIN
+		SELECT E.ID_Evento, TE.Descripcion_Tipo_Evento, CONCAT(E.Nombres, ' ', E.Apellidos) Cliente,
+				E.DNI,  E.Correo, E.Celular, FORMAT( E.Fecha, 'yyyy-MM-dd HH:mm:ss') Fecha
+			FROM EVENTO E
+				INNER JOIN Tipo_Evento TE ON E.ID_Tipo_Evento = TE.ID_Tipo_Evento
+			WHERE E.ID_Estado_Evento = 6
+			AND E.ID_Tipo_Evento = (CASE WHEN @Tipo_Evento = -1 THEN E.ID_Tipo_Evento ELSE @Tipo_Evento END)
+	END;
+END
+
+GO

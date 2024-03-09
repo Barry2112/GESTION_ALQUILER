@@ -1,0 +1,87 @@
+DROP PROC IF EXISTS SP_LISTAR_COTIZACION;
+GO
+
+CREATE PROC [dbo].[SP_LISTAR_COTIZACION]
+AS
+BEGIN
+	SELECT  ID_COTIZACION, 
+			CONCAT('COTIZACION_',ID_COTIZACION) NOMBRE,
+			FECHA,
+			sub_total,
+			total_IGV,
+			total
+	 FROM COTIZACION; 
+END
+
+GO
+
+
+DROP PROC IF EXISTS SP_LISTAR_DETALLES_COTIZACION;
+GO
+
+CREATE PROC [dbo].[SP_LISTAR_DETALLES_COTIZACION]
+	@ID_COTIZACION int
+AS
+BEGIN
+	SELECT 
+		E.Nombre_Equipo,
+		TE.Descripcion_Tipo_Equipo,
+		DC.cantidad,
+		DC.precio_unitario,
+		DC.sub_total
+	FROM Detalle_Cotizacion DC
+		LEFT JOIN Equipo E ON DC.ID_Equipo = E.ID_Equipo
+		LEFT JOIN Tipo_Equipo TE ON DC.ID_Tipo_Equipo = TE.ID_Tipo_Equipo
+	WHERE DC.ID_Cotizacion = @ID_COTIZACION; 
+END
+
+GO
+
+
+
+DROP PROCEDURE IF EXISTS SP_CARGAR_SOLICITUD_EVENTO_X_TIPOYFECHA;
+GO
+
+CREATE PROCEDURE SP_CARGAR_SOLICITUD_EVENTO_X_TIPOYFECHA
+	@Tipo_Evento int,
+	@Fechaini date,
+	@Fechafin date
+AS
+BEGIN
+	DECLARE @FechaExiste int;
+	SET @FechaExiste = IIF(@Fechaini is not null,1,0);
+
+	IF(@FechaExiste = 1) BEGIN
+			(SELECT 
+				E.ID_Evento, 
+				CONCAT(E.Nombres,' ', E.Apellidos) AS Cliente,
+				TE.Descripcion_Tipo_Evento, 
+				E.DNI, 
+				E.Correo,
+				E.Celular, 
+				FORMAT( E.Fecha,'yyyy-MM-dd HH:mm:ss' ) AS Fecha
+			FROM 
+				EVENTO E 
+					LEFT JOIN Tipo_Evento TE ON E.ID_Tipo_Evento = TE.ID_Tipo_Evento
+			WHERE E.ID_Estado_Evento = 1
+			AND E.ID_Tipo_Evento = (CASE WHEN @Tipo_Evento = -1 THEN E.ID_Tipo_Evento ELSE @Tipo_Evento END)
+			AND E.Fecha BETWEEN @Fechaini AND @Fechafin)
+		END 
+	ELSE BEGIN
+		SELECT 
+			E.ID_Evento, 
+			CONCAT(E.Nombres,' ', E.Apellidos) AS Cliente,
+			TE.Descripcion_Tipo_Evento, 
+			E.DNI, 
+			E.Correo,
+			E.Celular, 
+			FORMAT( E.Fecha,'yyyy-MM-dd HH:mm:ss' ) AS Fecha
+		FROM 
+			EVENTO E 
+				LEFT JOIN Tipo_Evento TE ON E.ID_Tipo_Evento = TE.ID_Tipo_Evento
+		WHERE E.ID_Estado_Evento = 1
+		AND E.ID_Tipo_Evento = (CASE WHEN @Tipo_Evento = -1 THEN E.ID_Tipo_Evento ELSE @Tipo_Evento END)
+	END;
+END
+
+GO

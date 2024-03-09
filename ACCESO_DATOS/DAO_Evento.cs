@@ -57,6 +57,36 @@ namespace ACCESO_DATOS
             }
         }
 
+        public DataTable Cargar_Solicitud_Evento_X_TipoYFecha(int ID_Tipo_Evento, DateTime? fechaini, DateTime? fechafin)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlCommand _comm = new SqlCommand("SP_CARGAR_SOLICITUD_EVENTO_X_TIPOYFECHA", _conn);
+                _comm.CommandType = CommandType.StoredProcedure;
+                _comm.Parameters.AddWithValue("@Tipo_Evento", ID_Tipo_Evento);
+                if(fechaini == null){
+                    _comm.Parameters.AddWithValue("@Fechaini", DBNull.Value);
+                }
+                else{
+                    _comm.Parameters.AddWithValue("@Fechaini", fechaini);
+                }
+                if (fechafin == null){
+                    _comm.Parameters.AddWithValue("@Fechafin", DBNull.Value);
+                }
+                else{
+                    _comm.Parameters.AddWithValue("@Fechafin", fechafin);
+                }
+                SqlDataAdapter sda = new SqlDataAdapter(_comm);
+                sda.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataTable Cargar_Solicitud_Evento_X_Tipo_Evento(DO_Evento DOE)
         {
             try
@@ -479,6 +509,40 @@ namespace ACCESO_DATOS
                 sda.Fill(dt);
                 return dt;
 
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable Cargar_EventoOrganizado_X_TipoYFecha(int ID_Tipo_Evento, DateTime? fechaini, DateTime? fechafin)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlCommand _comm = new SqlCommand("SP_CARGAR_EVENTO_ORGANIZADO_X_TIPOYFECHA", _conn);
+                _comm.CommandType = CommandType.StoredProcedure;
+                _comm.Parameters.AddWithValue("@Tipo_Evento", ID_Tipo_Evento);
+                if (fechaini == null)
+                {
+                    _comm.Parameters.AddWithValue("@Fechaini", DBNull.Value);
+                }
+                else
+                {
+                    _comm.Parameters.AddWithValue("@Fechaini", fechaini);
+                }
+                if (fechafin == null)
+                {
+                    _comm.Parameters.AddWithValue("@Fechafin", DBNull.Value);
+                }
+                else
+                {
+                    _comm.Parameters.AddWithValue("@Fechafin", fechafin);
+                }
+                SqlDataAdapter sda = new SqlDataAdapter(_comm);
+                sda.Fill(dt);
+                return dt;
             }
             catch (Exception ex)
             {

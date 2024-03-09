@@ -23,6 +23,11 @@ namespace NEGOCIO
             return _Dat.Cargar_Solicitud_Evento();
         }
 
+        public DataTable Cargar_Solicitud_Evento_X_TipoYFecha(int ID_Tipo_Evento, DateTime? fechaini, DateTime? fechafin)
+        {
+            return _Dat.Cargar_Solicitud_Evento_X_TipoYFecha(ID_Tipo_Evento, fechaini, fechafin);
+        }
+
         public DataTable Cargar_Solicitud_Evento_X_Tipo_Evento(DO_Evento DOE)
         {
             return _Dat.Cargar_Solicitud_Evento_X_Tipo_Evento(DOE);
@@ -125,6 +130,11 @@ namespace NEGOCIO
         public DataTable Cargar_Evento_Organizado()
         {
             return _Dat.Cargar_Evento_Organizado();
+        }
+
+        public DataTable Cargar_EventoOrganizado_X_TipoYFecha(int ID_Tipo_Evento, DateTime? fechaini, DateTime? fechafin)
+        {
+            return _Dat.Cargar_EventoOrganizado_X_TipoYFecha(ID_Tipo_Evento, fechaini, fechafin);
         }
 
         public void Registrar_Nota_Credito(int ID_Nota_Credito, DO_Nota_Credito DONC)

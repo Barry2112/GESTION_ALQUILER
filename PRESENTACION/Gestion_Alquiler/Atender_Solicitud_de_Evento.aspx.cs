@@ -44,11 +44,8 @@ namespace PRESENTACION.Gestion_de_Alquiler
           {
             regresarprincipal();
             Llenar_Tipo_Evento();
-            div_Filtrar_X_Tipo_Evento.Visible = false;
-            div_Filtrar_X_Fecha.Visible = false;
 
-            GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento();
-            GV_Gestionar_Solicitud_Evento.DataBind();
+            buscarEventoXFechaYTipo_Auxiliar(null);
           }
         }
       }
@@ -75,63 +72,35 @@ namespace PRESENTACION.Gestion_de_Alquiler
       DDL_Filtrar_X_Tipo_Evento.Items.Insert(0, new ListItem("SELECCIONE", "0"));
     }
 
-    protected void btn_Filtrar_Fecha_Click(object sender, EventArgs e)
+    protected void btn_Buscar_Evento_X_FechaYTipo_Click(object sender, EventArgs e)
     {
-      div_Filtrar_X_Fecha.Visible = true;
-      div_Filtrar_X_Tipo_Evento.Visible = false;
-    }
-
-    protected void btn_Filtrar_Tipo_Evento_Click(object sender, EventArgs e)
-    {
-      div_Filtrar_X_Tipo_Evento.Visible = true;
-      div_Filtrar_X_Fecha.Visible = false;
-    }
-
-    protected void btn_Buscar_Evento_X_Fecha_Click(object sender, EventArgs e)
-    {
-      if (txt_fecha.Text.Length == 0)
-      {
-        labelerror.Text = "ADVERTENCIA: Debe ingresar una fecha";
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $('#ModalError').modal('show');", true);
-      }
-      else
-      {
-        string fecha = txt_fecha.Text;
-        DateTime Fecha1 = Convert.ToDateTime(fecha);
-        DateTime Fecha2 = Fecha1.AddDays(1);
-
-        GV_Gestionar_Solicitud_Evento.AutoGenerateColumns = false;
-        GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento_X_Fecha(Fecha1, Fecha2);
-        GV_Gestionar_Solicitud_Evento.DataBind();
-      }
-    }
-
-    protected void DDL_Filtrar_X_Tipo_Evento_Changed(object sender, EventArgs e)
-    {
-      AUX_MostrarSolicitudXTipoEquipo();
-    }
-
-    public void AUX_MostrarSolicitudXTipoEquipo()
-    {
-      if (DDL_Filtrar_X_Tipo_Evento.SelectedItem.Text.Equals("SELECCIONE"))
-      {
-        labelerror.Text = "ADVERTENCIA: Debe selecionar un tipo de evento";
-        ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $('#ModalError').modal('show');", true);
-      }
-      else
-      {
-        DO_Evento DOE = new DO_Evento();
-        DOE.ID_Tipo_Evento = int.Parse(DDL_Filtrar_X_Tipo_Evento.SelectedValue);
-        GV_Gestionar_Solicitud_Evento.AutoGenerateColumns = false;
-        GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento_X_Tipo_Evento(DOE);
-        GV_Gestionar_Solicitud_Evento.DataBind();
-      }
+      buscarEventoXFechaYTipo_Auxiliar(null);
     }
 
     protected void OnPageIndexChangingRevisarSolicitud(object sender, GridViewPageEventArgs e)
     {
-      GV_Gestionar_Solicitud_Evento.PageIndex = e.NewPageIndex;
-      GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento();
+      buscarEventoXFechaYTipo_Auxiliar(e);
+    }
+
+    public void buscarEventoXFechaYTipo_Auxiliar(GridViewPageEventArgs e)
+    {
+      int ID_Tipo_Evento = new int();
+
+      if (DDL_Filtrar_X_Tipo_Evento.SelectedItem.Text.Equals("SELECCIONE")){
+        ID_Tipo_Evento = -1;
+      }
+      else{
+        ID_Tipo_Evento = int.Parse(DDL_Filtrar_X_Tipo_Evento.SelectedValue);
+      }
+
+      GV_Gestionar_Solicitud_Evento.AutoGenerateColumns = false;
+      if (txt_fecha.Text.Length == 0){
+        GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento_X_TipoYFecha(ID_Tipo_Evento, null, null);
+      }
+      else{
+        GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento_X_TipoYFecha(ID_Tipo_Evento, Convert.ToDateTime(txt_fecha.Text), Convert.ToDateTime(txt_fecha.Text).AddDays(1));
+      }
+      if (e != null) { GV_Gestionar_Solicitud_Evento.PageIndex = e.NewPageIndex; }
       GV_Gestionar_Solicitud_Evento.DataBind();
     }
 
@@ -240,8 +209,6 @@ namespace PRESENTACION.Gestion_de_Alquiler
       DIV_Atender_Solicitud_de_Evento.Visible = true;
       DIV_REVISAR_SOLICITUD_EVENTO.Visible = false;
       DIV_ATENDER_SOLICITUD_EVENTO.Visible = false;
-      div_Filtrar_X_Fecha.Visible = false;
-      div_Filtrar_X_Tipo_Evento.Visible = false;
       Label_ID_Evento.Visible = false;
 
     }
@@ -294,8 +261,7 @@ namespace PRESENTACION.Gestion_de_Alquiler
 
         NEvento.SolicitudEventoEditado(DOE);
 
-        GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento();
-        GV_Gestionar_Solicitud_Evento.DataBind();
+        buscarEventoXFechaYTipo_Auxiliar(null);
 
         regresarprincipal();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $('#ModalEventoRevisado').modal('show');", true);
@@ -368,8 +334,7 @@ namespace PRESENTACION.Gestion_de_Alquiler
 
         NEvento.Aprobar_Evento(ID_Evento);
 
-        GV_Gestionar_Solicitud_Evento.DataSource = NEvento.Cargar_Solicitud_Evento();
-        GV_Gestionar_Solicitud_Evento.DataBind();
+        buscarEventoXFechaYTipo_Auxiliar(null);
 
         regresarprincipal();
         ScriptManager.RegisterStartupScript(this, this.GetType(), "Pop", " $('#ModalEventoAtendido').modal('show');", true);

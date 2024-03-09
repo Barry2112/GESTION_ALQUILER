@@ -24,33 +24,6 @@ namespace PRESENTACION.Gestion_de_Alquiler
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Atender_Solicitud_de_Evento;
 
         /// <summary>
-        /// Control btn_Filtrar_Fecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Filtrar_Fecha;
-
-        /// <summary>
-        /// Control btn_Filtrar_Tipo_Evento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Filtrar_Tipo_Evento;
-
-        /// <summary>
-        /// Control div_Filtrar_X_Fecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Filtrar_X_Fecha;
-
-        /// <summary>
         /// Control txt_fecha.
         /// </summary>
         /// <remarks>
@@ -60,24 +33,6 @@ namespace PRESENTACION.Gestion_de_Alquiler
         protected global::System.Web.UI.WebControls.TextBox txt_fecha;
 
         /// <summary>
-        /// Control btn_Buscar_Evento_X_Fecha.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_Buscar_Evento_X_Fecha;
-
-        /// <summary>
-        /// Control div_Filtrar_X_Tipo_Evento.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_Filtrar_X_Tipo_Evento;
-
-        /// <summary>
         /// Control DDL_Filtrar_X_Tipo_Evento.
         /// </summary>
         /// <remarks>
@@ -85,6 +40,15 @@ namespace PRESENTACION.Gestion_de_Alquiler
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList DDL_Filtrar_X_Tipo_Evento;
+
+        /// <summary>
+        /// Control btn_Buscar_Evento_X_FechaYTipo.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_Buscar_Evento_X_FechaYTipo;
 
         /// <summary>
         /// Control div_GV_Cargar_Solicitud_Eventos.

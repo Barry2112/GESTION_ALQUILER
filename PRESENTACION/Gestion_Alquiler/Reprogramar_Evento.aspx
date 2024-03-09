@@ -64,29 +64,14 @@
     <div class="card col-sm-11 p-3">
       <div id="DIV_Atender_Solicitud_de_Evento" runat="server">
         <div class="mb-3" style="text-align: center">
-          <h1>EVENTOS ORGANIZADOS</h1>
-        </div>
-        <br />
-        <div id="div_Filtros_Atender_Solicitud_Evento" style="text-align: center">
-          <asp:Button ID="btn_Filtrar_Fecha" runat="server" Text="FILTRAR POR FECHA" OnClick="btn_Filtrar_Fecha_Click" class="btn_Atender_Solicitud_Evento" />
-          <asp:Button ID="btn_Filtrar_Tipo_Evento" runat="server" Text="FILTRAR POR TIPO DE EVENTO" OnClick="btn_Filtrar_Tipo_Evento_Click" class="btn_Atender_Solicitud_Evento" />
+          <h1>REPROGRAMAR EVENTO</h1>
         </div>
         <br />
 
-        <div id="div_Filtrar_X_Fecha" runat="server">
-          <div align="center">
-            <label>Eliga una fecha para filtrar</label>
-            <br />
-            <asp:TextBox ID="txt_fecha" runat="server" TextMode="Date" Height="30px" Width="200px"></asp:TextBox>
-            <asp:Button ID="btn_Buscar_Evento_X_Fecha" runat="server" Text="BUSCAR FECHA" Width="200px" OnClick="btn_Buscar_Evento_X_Fecha_Click" class="btn btn-secondary" Style="margin-left: 50px;" />
-          </div>
-        </div>
-
-        <div id="div_Filtrar_X_Tipo_Evento" runat="server">
-          <div align="center">
-            <label>Seleccione un tipo de evento para filtrar</label>
-            <asp:DropDownList ID="DDL_Filtrar_X_Tipo_Evento" runat="server" AutoPostBack="true" Width="200px" class="form-control" OnSelectedIndexChanged="DDL_Filtrar_X_Tipo_Evento_Changed"></asp:DropDownList>
-          </div>
+        <div align="center" style="display:flex;">
+          <asp:TextBox ID="txt_fecha" runat="server" TextMode="Date" Width="200px"></asp:TextBox>
+          <asp:DropDownList ID="DDL_Filtrar_X_Tipo_Evento" runat="server" AutoPostBack="true" Width="200px" class="form-control" style="margin-left: 50px;"></asp:DropDownList>
+          <asp:Button ID="btnBuscarEventoProgramadoXTipoYFecha" runat="server" Text="BUSCAR" Width="200px" OnClick="btnBuscarEventoProgramadoXTipoYFecha_Click" class="btn btn-secondary" style="margin-left: 50px;" />
         </div>
 
         <div id="div_GV_Cargar_Solicitud_Eventos" runat="server">

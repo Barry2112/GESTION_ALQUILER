@@ -2502,7 +2502,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Reportes\Acta_Conformidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Acta_Conformidad1.cs</LastGenOutput>
+      <LastGenOutput>Acta_Conformidad.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\Boleta.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
