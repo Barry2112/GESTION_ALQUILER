@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="Conexion_BD.cs" />
     <Compile Include="DAO_Equipo.cs" />
+    <Compile Include="DAO_Equipo_Incidencia.cs" />
     <Compile Include="DAO_Evento.cs" />
     <Compile Include="DAO_Marca.cs" />
     <Compile Include="DAO_Tipo_Equipo.cs" />

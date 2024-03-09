@@ -375,7 +375,7 @@ namespace ACCESO_DATOS
             try
             {
                 DataTable dt = new DataTable();
-                SqlCommand _comm = new SqlCommand("SP_CARGAR_INCIDENCIAS_EQUIPOS", _conn);
+                SqlCommand _comm = new SqlCommand("SP_CARGAR_INCIDENCIAS_DE_EQUIPOS", _conn);
                 _comm.CommandType = CommandType.StoredProcedure;
                 SqlDataAdapter sda = new SqlDataAdapter(_comm);
                 sda.Fill(dt);
@@ -429,6 +429,43 @@ namespace ACCESO_DATOS
                 _Data.SelectCommand.Parameters.AddWithValue("@ID_Equipo", ID_Equipo);
                 DataSet _Ds = new DataSet();
                 _Data.Fill(_Ds);
+                return _Ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataTable Listar_Equipos_con_Incidencias(int ID_Tipo_Equipo)
+        {
+            try
+            {
+                _conn.Open();
+                SqlDataAdapter _comm = new SqlDataAdapter("SP_LISTAR_EQUIPOS_CON_INCIDENCIAS", _conn);
+                _comm.SelectCommand.CommandType = CommandType.StoredProcedure;
+                _comm.SelectCommand.Parameters.AddWithValue("@ID_Tipo_Equipo", ID_Tipo_Equipo);
+                _conn.Close();
+                DataSet _Ds = new DataSet();
+                _comm.Fill(_Ds);
+                return _Ds.Tables[0];
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable Listar_Equipos_por_Tipo(int ID_Tipo_Equipo)
+        {
+            try
+            {
+                _conn.Open();
+                SqlDataAdapter _comm = new SqlDataAdapter("SP_LISTAR_EQUIPOS_POR_TIPO", _conn);
+                _comm.SelectCommand.CommandType = CommandType.StoredProcedure;
+                _comm.SelectCommand.Parameters.AddWithValue("@ID_Tipo_Equipo", ID_Tipo_Equipo);
+                _conn.Close();
+                DataSet _Ds = new DataSet();
+                _comm.Fill(_Ds);
                 return _Ds.Tables[0];
             }
             catch (Exception ex)

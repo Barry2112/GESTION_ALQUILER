@@ -155,7 +155,8 @@
     <Content Include="Gestion_Alquiler\Asignar_Equipo_Trabajador.aspx" />
     <Content Include="Gestion_Alquiler\Asignar_Trabajador_Evento.aspx" />
     <Content Include="Gestion_Alquiler\Atender_Solicitud_de_Evento.aspx" />
-    <Content Include="Gestion_Alquiler\Gestionar_Incidencia_Equipos.aspx" />
+    <Content Include="Gestion_Alquiler\Gestionar_Incidencias_Equipos.aspx" />
+    <Content Include="Gestion_Alquiler\Registrar_Incidencia_Equipo.aspx" />
     <Content Include="Gestion_Alquiler\Reportar_Equipo.aspx" />
     <Content Include="Gestion_Alquiler\Reportar_Incidencia_Equipo.aspx" />
     <Content Include="Gestion_Alquiler\Reporte.aspx" />
@@ -2066,12 +2067,19 @@
     <Compile Include="Gestion_Alquiler\Atender_Solicitud_de_Evento.aspx.designer.cs">
       <DependentUpon>Atender_Solicitud_de_Evento.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Gestion_Alquiler\Gestionar_Incidencia_Equipos.aspx.cs">
-      <DependentUpon>Gestionar_Incidencia_Equipos.aspx</DependentUpon>
+    <Compile Include="Gestion_Alquiler\Gestionar_Incidencias_Equipos.aspx.cs">
+      <DependentUpon>Gestionar_Incidencias_Equipos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Gestion_Alquiler\Gestionar_Incidencia_Equipos.aspx.designer.cs">
-      <DependentUpon>Gestionar_Incidencia_Equipos.aspx</DependentUpon>
+    <Compile Include="Gestion_Alquiler\Gestionar_Incidencias_Equipos.aspx.designer.cs">
+      <DependentUpon>Gestionar_Incidencias_Equipos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Gestion_Alquiler\Registrar_Incidencia_Equipo.aspx.cs">
+      <DependentUpon>Registrar_Incidencia_Equipo.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Gestion_Alquiler\Registrar_Incidencia_Equipo.aspx.designer.cs">
+      <DependentUpon>Registrar_Incidencia_Equipo.aspx</DependentUpon>
     </Compile>
     <Compile Include="Gestion_Alquiler\Reportar_Equipo.aspx.cs">
       <DependentUpon>Reportar_Equipo.aspx</DependentUpon>

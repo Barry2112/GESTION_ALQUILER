@@ -1,0 +1,259 @@
+DROP TABLE IF EXISTS  [dbo].[Equipo_Incidencia];
+GO
+CREATE TABLE [dbo].[Equipo_Incidencia](
+	[ID_Equipo_Incidencia] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Equipo] [int] NOT NULL,
+	[ID_Evento] [int] NULL,
+	[Descripcion] [varchar](200) NOT NULL,
+	[ID_Estado_Equipo_Incidencia] [int] NOT NULL,
+	[Fecha_creacion] [datetime] NULL,
+	[Fecha_resolucion] [datetime] NULL,
+	[Comentario] [varchar](200) NULL,
+ CONSTRAINT [PK_Equipo_Incidencia] PRIMARY KEY CLUSTERED 
+(
+	[ID_Equipo_Incidencia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+DROP TABLE IF EXISTS  [dbo].[Estado_Equipo_Incidencia];
+GO
+CREATE TABLE [dbo].[Estado_Equipo_Incidencia](
+	[ID_Estado_Equipo_Incidencia] [int] NOT NULL,
+	[Estado] [varchar](100) NOT NULL,
+ CONSTRAINT [PK_Estado_Equipo_Incidencia] PRIMARY KEY CLUSTERED 
+(
+	[ID_Estado_Equipo_Incidencia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+INSERT INTO [dbo].[Estado_Equipo_Incidencia] ([ID_Estado_Equipo_Incidencia] ,[Estado]) VALUES (1,'Creada');
+INSERT INTO [dbo].[Estado_Equipo_Incidencia] ([ID_Estado_Equipo_Incidencia] ,[Estado]) VALUES (2,'En revisión');
+INSERT INTO [dbo].[Estado_Equipo_Incidencia] ([ID_Estado_Equipo_Incidencia] ,[Estado]) VALUES (3,'Resuelta');
+INSERT INTO [dbo].[Estado_Equipo_Incidencia] ([ID_Estado_Equipo_Incidencia] ,[Estado]) VALUES (4,'Cerrada');
+GO
+
+
+DROP PROC IF EXISTS [dbo].[SP_LISTAR_EQUIPOS_CON_INCIDENCIAS];
+GO
+CREATE PROC [dbo].[SP_LISTAR_EQUIPOS_CON_INCIDENCIAS]
+	@ID_Tipo_Equipo INT
+AS
+BEGIN
+	declare @Tipo_Equipo_Aux int;
+
+	SELECT 
+		e.ID_Equipo,
+		e.Nombre_Equipo,
+		e.Codigo_Equipo
+	FROM Equipo e 
+		INNER JOIN Equipo_Incidencia ei on e.ID_Equipo = ei.ID_Equipo
+	WHERE
+		@ID_Tipo_Equipo = 
+		CASE	WHEN @ID_Tipo_Equipo = 0 THEN @ID_Tipo_Equipo
+			ELSE e.ID_Tipo_Equipo
+		END
+	GROUP BY e.ID_Equipo,e.Nombre_Equipo, e.Codigo_Equipo;
+END
+GO
+
+
+DROP PROC IF EXISTS [dbo].[SP_LISTAR_ESTADOS_DE_INCIDENCIAS_DE_EQUIPO]
+GO
+CREATE PROC [dbo].[SP_LISTAR_ESTADOS_DE_INCIDENCIAS_DE_EQUIPO]
+AS
+BEGIN
+	SELECT * FROM Estado_Equipo_Incidencia; 
+END
+GO
+
+
+DROP PROC IF EXISTS [dbo].SP_CARGAR_INCIDENCIAS_DE_EQUIPOS
+GO
+CREATE PROC [dbo].SP_CARGAR_INCIDENCIAS_DE_EQUIPOS
+	@ID_Tipo_Equipo INT,
+	@ID_Equipo INT,
+	@ID_Estado_Equipo_Incidencia INT
+AS
+BEGIN
+	SELECT 
+		ei.ID_Equipo_Incidencia,
+		ei.ID_Equipo,
+		eq.Codigo_Equipo, 
+		eq.Nombre_Equipo,
+		ei.ID_Evento,
+		ei.Descripcion,
+		ei.Fecha_creacion,
+		ei.Fecha_resolucion,
+		ei.Comentario,
+		eei.Estado
+	FROM Equipo_Incidencia ei
+		LEFT JOIN Evento e on ei.ID_Evento = e.ID_Evento
+		LEFT JOIN Equipo eq on ei.ID_Equipo = eq.ID_Equipo
+		LEFT JOIN Estado_Equipo_Incidencia eei on ei.ID_Estado_Equipo_Incidencia = eei.ID_Estado_Equipo_Incidencia
+	WHERE
+		@ID_Tipo_Equipo = 
+		CASE WHEN @ID_Tipo_Equipo = 0 THEN @ID_Tipo_Equipo
+			ELSE eq.ID_Tipo_Equipo
+		END
+	AND 
+		@ID_Equipo =
+		CASE WHEN @ID_Equipo = 0 THEN @ID_Equipo
+			ELSE ei.ID_Equipo
+		END
+	AND 
+		@ID_Estado_Equipo_Incidencia =
+		CASE WHEN @ID_Estado_Equipo_Incidencia = 0 THEN @ID_Estado_Equipo_Incidencia
+			ELSE ei.ID_Estado_Equipo_Incidencia
+		END			
+END
+GO
+
+
+DROP PROC IF EXISTS [dbo].SP_LISTAR_EQUIPOS_POR_TIPO;
+GO
+CREATE PROC [dbo].SP_LISTAR_EQUIPOS_POR_TIPO
+	@ID_Tipo_Equipo INT
+AS
+BEGIN
+	SELECT 
+		eq.Id_Equipo,
+		eq.Nombre_Equipo,
+		eq.Codigo_Equipo
+	FROM Equipo eq
+	WHERE 
+		@ID_Tipo_Equipo =
+		CASE WHEN @ID_Tipo_Equipo = 0
+			THEN @ID_Tipo_Equipo
+			ELSE eq.ID_Tipo_Equipo
+		END
+END
+GO
+
+DROP PROC IF EXISTS [dbo].[SP_OBTENER_INCIDENCIA_POR_ID];
+GO
+CREATE PROC [dbo].[SP_OBTENER_INCIDENCIA_POR_ID]
+	@ID_Equipo_Incidencia INT
+AS
+BEGIN
+	SELECT 
+		ei.ID_Equipo_Incidencia,
+		ei.ID_Equipo,
+		ei.ID_Evento,
+		ei.Descripcion,
+		ei.Fecha_creacion,
+		ei.Fecha_resolucion,
+		ei.Comentario,
+		ei.ID_Estado_Equipo_Incidencia,
+		te.ID_Tipo_Equipo,
+		te.Descripcion_Tipo_Equipo
+	FROM Equipo_Incidencia ei
+		LEFT JOIN Equipo e on ei.ID_Equipo = e.ID_Equipo
+		LEFT JOIN Tipo_Equipo te on e.ID_Tipo_Equipo = te.ID_Tipo_Equipo
+	WHERE @ID_Equipo_Incidencia = ei.ID_Equipo_Incidencia 
+END
+GO
+
+
+
+DROP PROC IF EXISTS [SP_MODIFICAR_INCIDENCIA_EQUIPO];
+GO
+CREATE PROC [dbo].[SP_MODIFICAR_INCIDENCIA_EQUIPO]
+	@ID_Equipo_Incidencia int,
+	@ID_Equipo int,
+	@ID_Evento int, 
+	@Descripcion varchar(200),
+	@Comentario varchar(200),
+	@ID_Estado_Equipo_Incidencia int
+AS
+BEGIN
+	IF(@ID_Equipo_Incidencia = 0) BEGIN
+		INSERT INTO Equipo_Incidencia(ID_Equipo, ID_Evento, Descripcion, ID_Estado_Equipo_Incidencia, Fecha_creacion, Fecha_resolucion, Comentario)
+		VALUES (@ID_Equipo, CASE WHEN @ID_Evento = 0 THEN null ELSE @ID_Evento END, @Descripcion, 1, CURRENT_TIMESTAMP, null, @Comentario);
+
+		INSERT INTO Log_Equipo_Incidencia (ID_Equipo_Incidencia, Fecha, Descripcion, Comentario, Id_Usuario, Cambio, ID_Estado_Equipo_Incidencia)
+		VALUES ( SCOPE_IDENTITY(), CURRENT_TIMESTAMP, @Descripcion, @Comentario, null, 'Creación de la incidencia.', 1);
+	END
+	ELSE BEGIN
+		UPDATE Equipo_Incidencia SET 
+			ID_Equipo = @ID_Equipo,
+			ID_Evento = CASE WHEN @ID_Evento = 0 THEN null ELSE @ID_Evento END,
+			Descripcion = @Descripcion,
+			ID_Estado_Equipo_Incidencia = @ID_Estado_Equipo_Incidencia,
+			Comentario = @Comentario
+		WHERE
+			ID_Equipo_Incidencia = @ID_Equipo_Incidencia;
+
+		/*FINALIZADA*/
+		IF(@ID_Estado_Equipo_Incidencia IN (3,4)) BEGIN
+			UPDATE Equipo_Incidencia SET 
+				Fecha_resolucion = CURRENT_TIMESTAMP
+			WHERE
+				ID_Equipo_Incidencia = @ID_Equipo_Incidencia;			
+		END
+
+		INSERT INTO Log_Equipo_Incidencia (ID_Equipo_Incidencia, Fecha, Descripcion, Comentario, Id_Usuario, Cambio, ID_Estado_Equipo_Incidencia)
+		VALUES ( @ID_Equipo_Incidencia, CURRENT_TIMESTAMP, @Descripcion, @Comentario, null, 'Actualizó la incidencia.', @ID_Estado_Equipo_Incidencia);
+	END;
+
+	SELECT 'Ok';
+END
+GO
+
+
+DROP TABLE IF EXISTS [dbo].[Log_Equipo_Incidencia];
+GO
+CREATE TABLE [dbo].[Log_Equipo_Incidencia](
+	[ID_Log_Equipo_Incidencia] [int] IDENTITY(1,1) NOT NULL,
+	[ID_Equipo_Incidencia] [int] NOT NULL,
+	[Fecha] [datetime] NULL,
+	[Descripcion] [nchar](200) NULL,
+	[Comentario] [nchar](200) NULL,
+	[Id_Usuario] [int] NULL,
+	[Cambio] [nchar](200) NULL,
+	[ID_Estado_Equipo_Incidencia] [int] NOT NULL,
+ CONSTRAINT [PK_Log_Equipo_Incidencia] PRIMARY KEY CLUSTERED 
+(
+	[ID_Log_Equipo_Incidencia] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+
+
+
+DROP PROC IF EXISTS [dbo].[SP_LISTAR_LOGS_EQUIPO_INCIDENCIA];
+GO
+CREATE PROC [dbo].[SP_LISTAR_LOGS_EQUIPO_INCIDENCIA]
+	@ID_Equipo_Incidencia int
+AS
+BEGIN
+	SELECT 
+		LOE.*,
+		EEI.Estado
+	FROM Log_Equipo_Incidencia LOE
+		LEFT JOIN Estado_Equipo_Incidencia EEI ON LOE.ID_Estado_Equipo_Incidencia = EEI.ID_Estado_Equipo_Incidencia
+	WHERE ID_Equipo_Incidencia = @ID_Equipo_Incidencia;
+END
+GO
+
+
+DROP PROC IF EXISTS [SP_CARGAR_EVENTO_POR_ID];
+GO
+CREATE PROC [dbo].[SP_CARGAR_EVENTO_POR_ID](
+	@ID_Evento int
+)
+AS
+BEGIN
+	SELECT 
+		E.ID_Evento, TE.Descripcion_Tipo_Evento, Concat(E.Nombres,' ',E.Apellidos) Cliente, E.DNI, 
+		E.Correo, E.Celular, E.Fecha, EE.Descripcion_Estado_Evento
+	FROM EVENTO E
+		LEFT JOIN Tipo_Evento TE on E.ID_Tipo_Evento = TE.ID_Tipo_Evento
+		LEFT JOIN Estado_Evento EE on E.ID_Estado_Evento = EE.ID_Estado_Evento
+	WHERE E.ID_Evento = @ID_Evento;
+END

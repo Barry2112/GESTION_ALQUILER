@@ -155,8 +155,11 @@ namespace NEGOCIO
 
         public void Evento_Eliminado(int ID_Evento) 
         {
-
             _Dat.Evento_Eliminado(ID_Evento);
+        }
+        public DataTable Cargar_Evento_Por_ID(int IdEvento)
+        {
+            return _Dat.Cargar_Evento_Por_ID(IdEvento);
         }
     }
 }

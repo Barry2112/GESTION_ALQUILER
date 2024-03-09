@@ -127,6 +127,14 @@ namespace NEGOCIO
         {
             return _Dat.Deshabilitar_Equipo(ID_Equipo);
         }
+        public DataTable Listar_Equipos_con_Incidencias(int ID_Tipo_Equipo)
+        {
+            return _Dat.Listar_Equipos_con_Incidencias(ID_Tipo_Equipo);
+        }
+        public DataTable Listar_Equipos_por_Tipo(int ID_Tipo_Equipo)
+        {
+            return _Dat.Listar_Equipos_por_Tipo(ID_Tipo_Equipo);
+        }
 
     }
 }

@@ -11,170 +11,188 @@ namespace PRESENTACION.Gestion_Alquiler
 {
 
 
-    public partial class Gestionar_Incidencia_Equipos
+    public partial class Registrar_Incidencia_Equipo
     {
 
         /// <summary>
-        /// Control DIV_GESTIONAR_Incidencia_Equipo.
+        /// Control LabelTitulo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_GESTIONAR_Incidencia_Equipo;
+        protected global::System.Web.UI.WebControls.Label LabelTitulo;
 
         /// <summary>
-        /// Control DIV_Detalles_Equipo.
+        /// Control datosEventoDIV.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_Detalles_Equipo;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl datosEventoDIV;
 
         /// <summary>
-        /// Control GV_Mostrar_Equipos_Incidencia.
+        /// Control lvlDescripcionEvento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView GV_Mostrar_Equipos_Incidencia;
+        protected global::System.Web.UI.WebControls.Label lvlDescripcionEvento;
 
         /// <summary>
-        /// Control label_ID_Equipo.
+        /// Control lvlCliente.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_ID_Equipo;
+        protected global::System.Web.UI.WebControls.Label lvlCliente;
 
         /// <summary>
-        /// Control DIV_DETALLES_EQUIPO_incidencia.
+        /// Control lvlDNI.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_DETALLES_EQUIPO_incidencia;
+        protected global::System.Web.UI.WebControls.Label lvlDNI;
 
         /// <summary>
-        /// Control txtCodigo_Equipo_Editar.
+        /// Control lvlCorreo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCodigo_Equipo_Editar;
+        protected global::System.Web.UI.WebControls.Label lvlCorreo;
 
         /// <summary>
-        /// Control txtNombre.
+        /// Control lvlCelular.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.Label lvlCelular;
 
         /// <summary>
-        /// Control DIV_txt_marca_equipo_editar.
+        /// Control lvlFecha.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_txt_marca_equipo_editar;
+        protected global::System.Web.UI.WebControls.Label lvlFecha;
 
         /// <summary>
-        /// Control txtmarca.
+        /// Control lvlEstadoEvento.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtmarca;
+        protected global::System.Web.UI.WebControls.Label lvlEstadoEvento;
 
         /// <summary>
-        /// Control txtPrecio.
+        /// Control DDL_Listar_Tipo_Equipos_Registro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrecio;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Listar_Tipo_Equipos_Registro;
 
         /// <summary>
-        /// Control txtTrabajador.
+        /// Control DDL_Equipos_Incidencias_Registro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtTrabajador;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Equipos_Incidencias_Registro;
 
         /// <summary>
-        /// Control label_ID_Trabajador.
+        /// Control DDL_Estados_Incidencias_Equipo_Registro.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label label_ID_Trabajador;
+        protected global::System.Web.UI.WebControls.DropDownList DDL_Estados_Incidencias_Equipo_Registro;
 
         /// <summary>
-        /// Control DIV_IMAGEN_EQUIPO.
+        /// Control divFechas.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl DIV_IMAGEN_EQUIPO;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divFechas;
 
         /// <summary>
-        /// Control Image_Equipo_Editar.
+        /// Control txtFechaCreacion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Image Image_Equipo_Editar;
+        protected global::System.Web.UI.WebControls.Label txtFechaCreacion;
 
         /// <summary>
-        /// Control detalles.
+        /// Control txtFechaResolucion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl detalles;
+        protected global::System.Web.UI.WebControls.Label txtFechaResolucion;
 
         /// <summary>
-        /// Control txtdetalle.
+        /// Control txtAreaDescripcion.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtdetalle;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtAreaDescripcion;
 
         /// <summary>
-        /// Control txtsolucion.
+        /// Control txtAreaComentario.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtsolucion;
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea txtAreaComentario;
 
         /// <summary>
-        /// Control btnRegistrarIncidencia.
+        /// Control btn_Registrar_Editar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnRegistrarIncidencia;
+        protected global::System.Web.UI.WebControls.Button btn_Registrar_Editar;
+
+        /// <summary>
+        /// Control divLogsIncidencias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divLogsIncidencias;
+
+        /// <summary>
+        /// Control GV_Logs_Incidencias.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView GV_Logs_Incidencias;
 
         /// <summary>
         /// Control labelerror.

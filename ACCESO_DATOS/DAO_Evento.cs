@@ -620,7 +620,26 @@ namespace ACCESO_DATOS
             }
         }
 
-        
+        public DataTable Cargar_Evento_Por_ID(int ID_Evento)
+        {
+            try
+            {
+                DataTable dt = new DataTable();
+                SqlCommand _comm = new SqlCommand("SP_CARGAR_EVENTO_POR_ID", _conn);
+                _comm.CommandType = CommandType.StoredProcedure;
+
+                _comm.Parameters.AddWithValue("@ID_Evento", ID_Evento);
+                SqlDataAdapter sda = new SqlDataAdapter(_comm);
+                sda.Fill(dt);
+                return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
     }
 }
 

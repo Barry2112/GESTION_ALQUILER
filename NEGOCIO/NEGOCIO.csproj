@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="N_Conexion_BD.cs" />
     <Compile Include="N_Equipo.cs" />
+    <Compile Include="N_Equipo_Incidencia.cs" />
     <Compile Include="N_Evento.cs" />
     <Compile Include="N_Marca.cs" />
     <Compile Include="N_Tipo_Equipo.cs" />
