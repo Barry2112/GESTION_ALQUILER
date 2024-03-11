@@ -75,13 +75,16 @@
           <nav class="mt-2">
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
               <li id="GestionAlquiler" runat="server" class="nav-header">GESTION DE ALQUILER</li>
+              <li id="ModuloDashboard" runat="server" class="nav-item">
+                <a href="../Gestion_Alquiler/Pagina_Principal.aspx" class="nav-link">
+                  <i class="nav-icon fas fa-chart-pie"></i>
+                  <p>Dashboard</p>
+                </a>
+              </li>
               <li id="ModuloEquipo" runat="server" class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    Equipos
-                    <i class="right fas fa-angle-left"></i>
-                  </p>
+                  <i class="nav-icon fa fa-camera-retro"></i>
+                  <p>Equipos<i class="right fas fa-angle-left"></i></p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li id="RegistrarEquipo" runat="server" class="nav-item">
@@ -119,11 +122,8 @@
 
               <li id="ModuloEvento" runat="server" class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                    Eventos
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
+                  <i class="nav-icon far fa-calendar-alt"></i>
+                  <p>Eventos<i class="fas fa-angle-left right"></i></p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li id="RegistrarSolicitudEvento" runat="server" class="nav-item">
@@ -167,11 +167,8 @@
 
               <li id="ModuloCotizaciones" runat="server" class="nav-item">
                 <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-copy"></i>
-                  <p>
-                    Cotizaciones
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
+                  <i class="nav-icon far fa-file-alt"></i>
+                  <p>Cotizaciones<i class="fas fa-angle-left right"></i></p>
                 </a>
                 <ul class="nav nav-treeview">
                   <li id="GenerarCotizacion" runat="server" class="nav-item">

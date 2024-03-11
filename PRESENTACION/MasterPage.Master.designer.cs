@@ -132,6 +132,15 @@ namespace PRESENTACION
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl GestionAlquiler;
 
         /// <summary>
+        /// Control ModuloDashboard.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl ModuloDashboard;
+
+        /// <summary>
         /// Control ModuloEquipo.
         /// </summary>
         /// <remarks>

@@ -1,0 +1,151 @@
+ALTER TABLE Evento ADD fecha_creacion datetime;
+go
+
+
+ALTER PROC SP_REGISTRAR_SOLICITUD_EVENTO
+@ID_Tipo_Evento int,
+@Nombres varchar(100),
+@Apellidos varchar(100),
+@DNI varchar(8),
+@Celular varchar(9),
+@Correo varchar(100),
+@Fecha Datetime,
+@Direccion varchar(100),
+@Direccion_Evento varchar(100),
+@Detalles varchar(300),
+@Otro_Tipo_Evento varchar(100)
+AS
+BEGIN
+	INSERT INTO Evento(ID_Estado_Evento, ID_Tipo_Evento, Nombres, Apellidos, DNI, Celular, Correo, Fecha, Direccion, Direccion_Evento, Detalles, Otro_Evento, fecha_creacion)
+	VALUES (1, @ID_Tipo_Evento, @Nombres, @Apellidos, @DNI, @Celular, @Correo, @Fecha, @Direccion, @Direccion_Evento, @Detalles, @Otro_Tipo_Evento, GETDATE());
+END 
+
+GO
+
+
+
+
+DROP PROC IF EXISTS SP_DASHBOARD_DATOS;
+go
+
+CREATE PROC SP_DASHBOARD_DATOS
+AS
+BEGIN
+	/*COTIZACIONES*/
+	DECLARE @v_total_cotizaciones int;
+	DECLARE @v_total_cotizaciones_mes int;
+	DECLARE @v_total_cotizaciones_anio int;
+
+	SET @v_total_cotizaciones = (SELECT count(1) from Cotizacion);
+
+	SET @v_total_cotizaciones_mes 
+		= (SELECT count(1)
+			from Cotizacion c
+			where MONTH(c.Fecha) = MONTH(GETDATE())
+			AND YEAR(c.Fecha) = YEAR(GETDATE()) );
+
+	SET @v_total_cotizaciones_anio 
+		= (SELECT count(1)
+			from Cotizacion c
+			where YEAR(c.Fecha) = YEAR(GETDATE()) );
+
+	/*INCIDENCIAS DE EQUIPOS*/
+	DECLARE @v_total_incidencias int;
+	DECLARE @v_total_incidencias_mes int;
+	DECLARE @v_total_incidencias_anio int;
+
+	SET @v_total_incidencias = (SELECT count(1) from Equipo_Incidencia);
+
+	SET @v_total_incidencias_mes 
+		= (SELECT count(1)
+			from Equipo_Incidencia ei
+			where MONTH(ei.Fecha_creacion) = MONTH(GETDATE())
+			AND YEAR(ei.Fecha_creacion) = YEAR(GETDATE()) );
+
+	SET @v_total_incidencias_anio 
+		= (SELECT count(1)
+			from Equipo_Incidencia ei
+			where YEAR(ei.Fecha_creacion) = YEAR(GETDATE()) );
+
+	/*EQUIPOS REGISTRADOS*/
+	DECLARE @v_total_equipos int;
+
+	SET @v_total_equipos = (SELECT count(1) from Equipo);
+
+	/*Eventos*/
+	DECLARE @v_total_eventos int;
+	DECLARE @v_total_eventos_mes int;
+	DECLARE @v_total_eventos_anio int;
+
+	SET @v_total_eventos = (SELECT count(1) from Evento);
+
+	SET @v_total_eventos_mes 
+		= (SELECT count(1)
+			from Evento e
+			where MONTH(e.fecha_creacion) = MONTH(GETDATE())
+			AND YEAR(e.fecha_creacion) = YEAR(GETDATE()) );
+
+	SET @v_total_eventos_anio 
+		= (SELECT count(1)
+			from Evento e
+			where YEAR(e.fecha_creacion) = YEAR(GETDATE()) );
+	
+	SELECT 
+		@v_total_cotizaciones as total_cotizaciones, @v_total_cotizaciones_mes as total_cotizaciones_mes, @v_total_cotizaciones_anio as total_cotizaciones_anio,
+		@v_total_incidencias as total_incidencias, @v_total_incidencias_mes as total_incidencias_mes, @v_total_incidencias_anio as total_incidencias_anio,
+		@v_total_equipos as total_equipos,
+		@v_total_eventos as total_eventos, @v_total_eventos_mes as total_eventos_mes, @v_total_eventos_anio as total_eventos_anio
+	;
+END
+
+GO
+
+
+
+
+DROP PROC IF EXISTS SP_DASHBOARD_EVENTOS_POR_ESTADO;
+go
+
+CREATE PROC SP_DASHBOARD_EVENTOS_POR_ESTADO
+AS
+BEGIN
+	SELECT ee.Descripcion_Estado_Evento, Count(1)  FROM Evento e
+	LEFT JOIN Estado_Evento ee ON e.ID_Estado_Evento = ee.ID_Estado_Evento
+	GROUP BY ee.Descripcion_Estado_Evento
+	ORDER BY 1 ASC
+END
+
+go
+
+
+DROP PROC IF EXISTS SP_DASHBOARD_EVENTOS_POR_TIPO;
+go
+
+CREATE PROC SP_DASHBOARD_EVENTOS_POR_TIPO
+AS
+BEGIN
+	SELECT te.Descripcion_Tipo_Evento, Count(1)  FROM Evento e
+	LEFT JOIN Tipo_Evento te ON e.ID_Tipo_Evento = te.ID_Tipo_Evento
+	GROUP BY te.Descripcion_Tipo_Evento
+	ORDER BY 1 ASC
+END
+
+go
+
+
+
+DROP PROC IF EXISTS SP_DASHBOARD_EVENTOS_POR_ANIO;
+go
+
+CREATE PROC SP_DASHBOARD_EVENTOS_POR_ANIO
+AS
+BEGIN
+	SELECT COALESCE(convert(varchar,YEAR(e.fecha_creacion)),'SIN DATOS') as anio , Count(1) as cantidad    
+		FROM Evento e
+	GROUP BY COALESCE(convert(varchar,YEAR(e.fecha_creacion)),'SIN DATOS')
+	ORDER BY 1 ASC
+END
+
+go
+
+

@@ -111,6 +111,18 @@
     <Content Include="dist\css\alt\adminlte.pages.min.css" />
     <Content Include="dist\css\alt\adminlte.plugins.css" />
     <Content Include="dist\css\alt\adminlte.plugins.min.css" />
+    <Content Include="dist\sb-admin-2\Chart.bundle.js" />
+    <Content Include="dist\sb-admin-2\Chart.bundle.min.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.bundle.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.bundle.min.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.min.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.min.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.slim.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.slim.min.js" />
+    <Content Include="dist\sb-admin-2\sb-admin-2.js" />
+    <Content Include="dist\sb-admin-2\sb-admin-2.min.css" />
     <Content Include="dist\img\AdminLTELogo.png" />
     <Content Include="dist\img\avatar.png" />
     <Content Include="dist\img\avatar2.png" />
@@ -152,6 +164,7 @@
     <Content Include="dist\js\pages\dashboard.js" />
     <Content Include="dist\js\pages\dashboard2.js" />
     <Content Include="dist\js\pages\dashboard3.js" />
+    <Content Include="dist\sb-admin-2\sb-admin-2.min.js" />
     <Content Include="Gestion_Alquiler\Asignar_Equipo_Trabajador.aspx" />
     <Content Include="Gestion_Alquiler\Asignar_Trabajador_Evento.aspx" />
     <Content Include="Gestion_Alquiler\Atender_Solicitud_de_Evento.aspx" />
@@ -2360,6 +2373,8 @@
     <Content Include="dist\js\.eslintrc.json" />
     <Content Include="dist\js\adminlte.js.map" />
     <Content Include="dist\js\adminlte.min.js.map" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.min.map" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.slim.min.map" />
     <None Include="packages.config" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css.map" />
