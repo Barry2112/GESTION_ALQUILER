@@ -1,62 +1,10 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/MasterPage.Master" AutoEventWireup="true" CodeBehind="Revisar_Evento_Organizado.aspx.cs" Inherits="PRESENTACION.Gestion_Alquiler.Revisar_Evento_Organizado" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+  <link href="../dist/css/gridview.css" rel="stylesheet">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
   <style>
-    .modal-content {
-      text-align: center;
-    }
-
-    .gridview {
-      font-family: "arial";
-      background-color: #FFFFFF;
-      width: 100%;
-      font-size: small;
-    }
-
-      .gridview th {
-        background: #7AC142;
-        padding: 5px;
-        font-size: small;
-      }
-
-        .gridview th a {
-          color: #003300;
-          text-decoration: none;
-        }
-
-          .gridview th a:hover {
-            color: #003300;
-            text-decoration: underline;
-          }
-
-      .gridview td {
-        background: #D9EDC9;
-        color: #333333;
-        font: small "arial";
-        padding: 4px;
-      }
-
-      .gridview tr.even td {
-        background: #FFFFFF;
-      }
-
-      .gridview td a {
-        color: #003300;
-        font: bold small "arial";
-      }
-
-    h1 {
-      font-size: 40px;
-      font-weight: bold;
-      text-align: center;
-    }
-
-    .p {
-      font-size: 22px;
-    }
-
     .btn_Anexar_Acta {
       font-size: 20px;
       font-weight: lighter;
