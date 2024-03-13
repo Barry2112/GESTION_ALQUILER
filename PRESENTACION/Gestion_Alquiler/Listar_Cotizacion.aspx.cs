@@ -12,6 +12,12 @@ using System.Security.Cryptography;
 using NEGOCIO;
 using DOMINIO;
 using System.Text;
+using PRESENTACION.Reportes;
+using System.Web.Hosting;
+using System.Configuration;
+using System.Drawing;
+using System.Reflection.Emit;
+using static System.Net.WebRequestMethods;
 
 namespace PRESENTACION.Gestion_Alquiler
 {
@@ -19,6 +25,7 @@ namespace PRESENTACION.Gestion_Alquiler
   {
     N_Evento NEvento = new N_Evento();
     N_Tipo_Evento NTipoEvento = new N_Tipo_Evento();
+    N_Email NEmail = new N_Email();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -86,16 +93,53 @@ namespace PRESENTACION.Gestion_Alquiler
           string script = "$('#popupVerDetallesCotizacion').modal('show');";
           ClientScript.RegisterStartupScript(this.GetType(), "Popup", script, true);
 
-          txtCotizacionSeleccionada.Text          = GV_Listar_Cotizacion.Rows[rowIndex].Cells[1].Text;
-          txtCotizacionSeleccionadaFecha.Text     = GV_Listar_Cotizacion.Rows[rowIndex].Cells[2].Text;
-          txtCotizacionSeleccionadaSubtotal.Text  = GV_Listar_Cotizacion.Rows[rowIndex].Cells[3].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[3].Text;
-          txtCotizacionSeleccionadaTotalIGV.Text  = GV_Listar_Cotizacion.Rows[rowIndex].Cells[4].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[4].Text;
-          txtCotizacionSeleccionadaTotal.Text     = GV_Listar_Cotizacion.Rows[rowIndex].Cells[5].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[5].Text;
+          txtCotizacionSeleccionada.Text = GV_Listar_Cotizacion.Rows[rowIndex].Cells[1].Text;
+          txtCotizacionSeleccionadaFecha.Text = GV_Listar_Cotizacion.Rows[rowIndex].Cells[2].Text;
+          txtCotizacionSeleccionadaSubtotal.Text = GV_Listar_Cotizacion.Rows[rowIndex].Cells[3].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[3].Text;
+          txtCotizacionSeleccionadaTotalIGV.Text = GV_Listar_Cotizacion.Rows[rowIndex].Cells[4].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[4].Text;
+          txtCotizacionSeleccionadaTotal.Text = GV_Listar_Cotizacion.Rows[rowIndex].Cells[5].Text == "&nbsp;" ? "" : GV_Listar_Cotizacion.Rows[rowIndex].Cells[5].Text;
 
           GV_Detalles_Cotizacion.DataSource = NEvento.Cargar_Detalles_Cotizacion(ID_Cotizacion);
           GV_Detalles_Cotizacion.DataBind();
 
           break;
+        case "CORREO":
+          /*OBTENER ID COTIZACION Y ABRIR POPUP*/
+          Session["IDCotizacionCorreo"] = ID_Cotizacion;
+          txtAlertaPopupCorreoInvalido.Visible = false;
+          string ingresarCorreoPopupString = "$('#popupIngresarCorreoParaMail').modal({backdrop: 'static',keyboard: false});";
+          ClientScript.RegisterStartupScript(this.GetType(), "Popup", ingresarCorreoPopupString, true);
+          break;
+      }
+    }
+    protected void btnEnviarCorreoFinal_Click(object sender, EventArgs e)
+    {
+      if (!string.IsNullOrEmpty(txtCorreoParaMail.Text.Trim()))
+      {
+        System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
+        bool isValid = regex.IsMatch(txtCorreoParaMail.Text.Trim());
+        if (!isValid)
+        {
+          txtAlertaPopupCorreoInvalido.Visible = true;
+          txtAlertaPopupCorreoInvalido. InnerText = "Email inválido.";
+        }
+        else
+        {
+          DO_Email email = new DO_Email();
+          email.Para = txtCorreoParaMail.Text;
+          email.Asunto = "SWACE - COTIZACIÓN EMITIDA";
+          email.Contenido = @"<b>Se adjunta la cotización que solicito. ¡Muchas grácias por su preferencia!</b>";
+
+          email.Ubicacion_Archivo = HostingEnvironment.MapPath("~\\Cotizacion\\" + "Cotizacion" + "_" + Session["IDCotizacionCorreo"] + ".pdf");
+
+          ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "Pop", "$('#popupIngresarCorreoParaMail').modal('hide');", true);
+          NEmail.EnviarMail(email);         
+        }
+      }
+      else
+      {
+        txtAlertaPopupCorreoInvalido.Visible = true;
+        txtAlertaPopupCorreoInvalido.InnerText = "Error, debe ingresar un correo.";
       }
     }
   }

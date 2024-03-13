@@ -46,6 +46,7 @@
     <Compile Include="DO_Contrato.cs" />
     <Compile Include="DO_Cotizacion.cs" />
     <Compile Include="DO_Dashboard.cs" />
+    <Compile Include="DO_Email.cs" />
     <Compile Include="DO_Equipo.cs" />
     <Compile Include="DO_Equipo_Incidencia.cs" />
     <Compile Include="DO_Estado_Evento.cs" />
