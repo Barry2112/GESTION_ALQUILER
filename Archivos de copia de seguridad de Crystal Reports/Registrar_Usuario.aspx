@@ -48,23 +48,13 @@
       margin-top: 10px;
     }
 
-    .btnBackLogin {
-      position: absolute;
-      width: 150px;
-      height: 56px;
-      font-size: 20px;
-      font-weight: lighter;
-      margin-left: 260px;
-      margin-top: 28px;
-    }
-
     .btnRegistrarUsuario {
       position: absolute;
       width: 200px;
       height: 56px;
       font-size: 20px;
       font-weight: lighter;
-      margin-left: 450px;
+      margin-left: 352px;
       margin-top: 28px;
     }
   </style>
@@ -77,8 +67,7 @@
       <div class="row">
         <div class="col-md-4">
           REGISTRE SU NOMBRE:
-                   
-          <asp:TextBox ID="txt_nombre" runat="server" class="textbox"></asp:TextBox>
+                    <asp:TextBox ID="txt_nombre" runat="server" class="textbox"></asp:TextBox>
           <asp:RegularExpressionValidator ID="RegularExpressionValidator1" runat="server"
             ValidationGroup="VG_form" ControlToValidate="txt_nombre" ErrorMessage="Este campo no admite numeros"
             ForeColor="Red"
@@ -87,8 +76,7 @@
         </div>
         <div class="col-md-4">
           REGISTRE SU APELLIDO:
-                   
-          <asp:TextBox ID="txt_apellido" runat="server" class="textbox"></asp:TextBox>
+                    <asp:TextBox ID="txt_apellido" runat="server" class="textbox"></asp:TextBox>
           <asp:RegularExpressionValidator ID="RegularExpressionValidator2" runat="server"
             ValidationGroup="VG_form" ControlToValidate="txt_apellido" ErrorMessage="Este campo no admite numeros"
             ForeColor="Red"
@@ -97,8 +85,7 @@
         </div>
         <div class="col-md-4">
           REGISTRE SU DNI:
-                   
-          <asp:TextBox ID="txt_dni" runat="server" class="textbox"></asp:TextBox>
+                    <asp:TextBox ID="txt_dni" runat="server" class="textbox"></asp:TextBox>
           <asp:RegularExpressionValidator ID="RegularExpressionValidator3" runat="server"
             ValidationGroup="VG_form" ControlToValidate="txt_dni" ErrorMessage="Este campo solo admite numeros"
             ForeColor="Red"
@@ -107,8 +94,7 @@
         </div>
         <div class="col-md-4">
           REGISTRE SU CELULAR:
-                   
-          <asp:TextBox ID="txt_celular" runat="server" class="textbox"></asp:TextBox>
+                    <asp:TextBox ID="txt_celular" runat="server" class="textbox"></asp:TextBox>
           <asp:RegularExpressionValidator ID="RegularExpressionValidator5" runat="server"
             ValidationGroup="VG_form" ControlToValidate="txt_celular" ErrorMessage="Este campo solo admite numeros"
             ForeColor="Red"
@@ -117,13 +103,11 @@
         </div>
         <div class="col-md-4">
           REGISTRE UNA DIRECCION:
-         
           <asp:TextBox ID="txt_direccion" runat="server" class="textbox"></asp:TextBox>
         </div>
         <div class="col-md-4">
           REGISTRE SU CORREO:
-                   
-          <asp:TextBox ID="txt_correo" runat="server" class="textbox"></asp:TextBox>
+                    <asp:TextBox ID="txt_correo" runat="server" class="textbox"></asp:TextBox>
           <asp:RegularExpressionValidator ID="RegularExpressionValidator4" runat="server"
             ValidationGroup="VG_form" ControlToValidate="txt_correo" ErrorMessage="Debe cumplir este formato: correo@enlace"
             ForeColor="Red"
@@ -132,34 +116,29 @@
         </div>
         <div class="col-md-4">
           REGISTRE SU PASSWORD:
-                   
-          <asp:TextBox ID="txt_contra" runat="server" class="textbox" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txt_contra" runat="server" class="textbox" TextMode="Password"></asp:TextBox>
         </div>
         <div class="col-md-4">
           VUELVA INGRESAR SU PASSWORD:
-                   
-          <asp:TextBox ID="txt_contrase_validar" runat="server" class="textbox" TextMode="Password"></asp:TextBox>
+                    <asp:TextBox ID="txt_contrase_validar" runat="server" class="textbox" TextMode="Password"></asp:TextBox>
         </div>
         <div class="col-md-4">
           REGISTRE SU IMAGEN DE USUARIO:
-          
-          <asp:FileUpload ID="FU_Imagen_Usuario" runat="server" Style="margin-top: 20px" />
+           <asp:FileUpload ID="FU_Imagen_Usuario" runat="server" Style="margin-top: 20px" />
         </div>
       </div>
     </div>
 
+    <asp:Button ID="btn_Registrar_Usuario" runat="server" Text="REGISTRAR USUARIO" class="btnRegistrarUsuario" OnClick="btn_Registrar_Usuario_Click" ValidationGroup="VG_form" />
     <br />
     <br />
-    <div>
-      <asp:Button ID="btn_Registrar_Usuario" runat="server" Text="REGISTRAR USUARIO" class="btnRegistrarUsuario" OnClick="btn_Registrar_Usuario_Click" ValidationGroup="VG_form" />
-      <asp:Button ID="Button1" runat="server" Text="REGRESAR" class="btnBackLogin" OnClick="btn_Volver_Login_Click" />
-    </div>
-    <br />
-    <br />
+
+    <asp:Button ID="btn_Volver_Login" runat="server" Text="VOLVER A INICIAR SESION" OnClick="btn_Volver_Login_Click"/>
   </div>
+
   <br />
 
-  <div class="modal fade" id="ModalError" role="dialog" style="margin-top: 46px; margin-left: 98px">
+  <div class="modal fade" id="ModalError" role="dialog" style="margin-top: 46px; margin-left:98px">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header" style="width: 500px; height: 300px; background-color: red">

@@ -2,12 +2,11 @@
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
   <link href="../dist/sb-admin-2/sb-admin-2.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <script type="text/javascript" src="../dist/sb-admin-2/jquery/jquery.js"></script>
   <!--script type="text/javascript" src="../dist/sb-admin-2/sb-admin-2.min.js"></!--script-->
   <script type="text/javascript" src="../dist/sb-admin-2/sb-admin-2.js"></script>
   <script type="text/javascript" src="../dist/sb-admin-2/chartjs/Chart.js"></script>
-    
+
   <script type="text/javascript" language="javascript">
     /*function changeText1() {
         document.getElementById("lbl_header").innerText = 'Add New Teacher';
@@ -100,7 +99,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
 
 
-  <h2>Cotizaciones <i class="fa-solid fa-file-shield"></i> </h2>
+  <h2>Cotizaciones</h2>
 
   <div class="row mb-4">
     <div class="col-md-3">
@@ -114,7 +113,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-calendar-plus"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
@@ -131,7 +130,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-calendar-day"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
@@ -156,7 +155,7 @@
     </div>
   </div>
 
-  <h2>Incidencias  <i class="fa-regular fa-sensor-triangle-exclamation"></i> </h2>
+  <h2>Incidencias</h2>
 
   <div class="row mb-4">
     <div class="col-md-3">
@@ -170,7 +169,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-triangle-exclamation"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
@@ -187,7 +186,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-triangle-exclamation"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
@@ -204,7 +203,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-triangle-exclamation"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
@@ -212,7 +211,7 @@
     </div>
   </div>
 
-  <h2>Equipos <i class="fa-solid fa-box"></i></h2>
+  <h2>Equipos</h2>
 
   <div class="row mb-4">
     <div class="col-md-3">
@@ -234,7 +233,7 @@
     </div>
   </div>
 
-  <h2>Eventos <i class="fa-regular fa-calendar-days"></i></h2>
+  <h2>Eventos</h2>
 
   <div class="row mb-4">
     <div class="col-md-3">
@@ -248,7 +247,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-calendar-plus"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
@@ -265,7 +264,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-calendar-plus"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
@@ -282,7 +281,7 @@
               </div>
             </div>
             <div class="col-auto">
-              <i class="fa-solid fa-calendar-plus"></i>
+              <i class="fas fa-calendar"></i>
             </div>
           </div>
         </div>
