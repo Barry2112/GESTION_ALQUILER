@@ -149,7 +149,8 @@ namespace PRESENTACION.Gestion_Alquiler
       ReportDocument RepDoc = new ReportDocument();
       RepDoc.Load(Server.MapPath(@"~/Reportes/Nota_Credito.rpt"));
       RepDoc.SetParameterValue("@ID", ID_Evento);
-      RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
+      RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", NConexionBD.getUser(), NConexionBD.getPassword());
+      //RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
       RepDoc.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Nota_Credito/Nota_Credito_" + ID_Evento + ".pdf"));
       FileStream fstream = new FileStream(Server.MapPath(@"~/Nota_Credito/Nota_Credito_" + ID_Evento + ".pdf"), FileMode.Open);
       BinaryReader binaryReader = new BinaryReader(fstream);

@@ -554,7 +554,8 @@ namespace PRESENTACION.Gestion_Alquiler
         ReportDocument RepDoc = new ReportDocument();
         RepDoc.Load(Server.MapPath(@"~/Reportes/Cotizacion.rpt"));
         RepDoc.SetParameterValue("@ID_COTIZACION", ID_Cotizacion);
-        RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
+        RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", NConexionBD.getUser(), NConexionBD.getPassword());
+        //RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
         RepDoc.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Cotizacion/Cotizacion_" + ID_Cotizacion + ".pdf"));
         FileStream fstream = new FileStream(Server.MapPath(@"~/Cotizacion/Cotizacion_" + ID_Cotizacion + ".pdf"), FileMode.Open);
         BinaryReader binaryReader = new BinaryReader(fstream);

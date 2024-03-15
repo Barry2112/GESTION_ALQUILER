@@ -16,5 +16,13 @@ namespace NEGOCIO
         {
             return _con.Server();
         }
+        public string getUser()
+        {
+            return _con.User();
+        }
+        public string getPassword()
+        {
+            return _con.Password();
+        }
     }
 }

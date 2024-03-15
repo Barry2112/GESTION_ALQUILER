@@ -137,7 +137,8 @@ namespace PRESENTACION.Gestion_Alquiler
       ReportDocument RepDoc = new ReportDocument();
       RepDoc.Load(Server.MapPath(@"~/Reportes/Acta_Conformidad.rpt"));
       RepDoc.SetParameterValue("@ID_EVENTO", ID_EVENTITO);
-      RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
+      RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", NConexionBD.getUser(), NConexionBD.getPassword());
+      //RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
       RepDoc.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Documento_Satisfaccion/Acta_Conformidad_" + ID_EVENTITO + ".pdf"));
 
       string path = Server.MapPath(@"~/Documento_Satisfaccion/Acta_Conformidad_" + ID_EVENTITO + ".pdf");

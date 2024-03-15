@@ -189,8 +189,9 @@ namespace PRESENTACION.Gestion_Alquiler
 
             ReportDocument RepDoc = new ReportDocument();
             RepDoc.Load(Server.MapPath(@"~/Reportes/Boleta.rpt"));
-            RepDoc.SetParameterValue("@id", ID_Evento);
-            RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
+            RepDoc.SetParameterValue("@id", ID_Evento);            
+            RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", NConexionBD.getUser(), NConexionBD.getPassword());
+            //RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
             RepDoc.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Boleta/Boleta_" + ID_Evento + ".pdf"));
             FileStream fstream = new FileStream(Server.MapPath(@"~/Boleta/Boleta_" + ID_Evento + ".pdf"), FileMode.Open);
             BinaryReader binaryReader = new BinaryReader(fstream);
@@ -207,7 +208,8 @@ namespace PRESENTACION.Gestion_Alquiler
             ReportDocument RepDoc2 = new ReportDocument();
             RepDoc2.Load(Server.MapPath(@"~/Reportes/Contrato.rpt"));
             RepDoc2.SetParameterValue("@ID_EVENTO", ID_Evento);
-            RepDoc2.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
+            RepDoc2.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", NConexionBD.getUser(), NConexionBD.getPassword());
+            //RepDoc2.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
             RepDoc2.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Contrato/Contrato_" + ID_Evento + ".pdf"));
             FileStream fstream2 = new FileStream(Server.MapPath(@"~/Contrato/Contrato_" + ID_Evento + ".pdf"), FileMode.Open);
             BinaryReader binaryReader2 = new BinaryReader(fstream2);
