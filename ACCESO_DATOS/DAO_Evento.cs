@@ -380,6 +380,27 @@ namespace ACCESO_DATOS
                 throw ex;
             }
         }
+        public string Obtener_Correo_Cliente_Evento(int ID_Evento)
+        {
+            string respuesta = "";
+            try
+            {
+                SqlCommand comand = new SqlCommand("SP_OBTENER_CORREO_CLIENTE_X_EVENTO", _conn);
+                comand.CommandType = System.Data.CommandType.StoredProcedure;
+                _conn.Open();
+                comand.Parameters.AddWithValue("@ID_Evento", ID_Evento);
+                respuesta = comand.ExecuteScalar().ToString();
+                //comand.ExecuteNonQuery();
+                _conn.Close();
+                return respuesta;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+                return "";
+            } 
+        }
+
 
         public void Guardar_Boleta(int ID_Evento, DO_Boleta DOB)
         {

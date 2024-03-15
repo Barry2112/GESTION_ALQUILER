@@ -92,6 +92,10 @@ namespace NEGOCIO
         {
             _Dat.Organizar_Evento(ID_Evento);
         }
+        public string Obtener_Correo_Cliente_Evento(int ID_Evento)
+        {
+           return _Dat.Obtener_Correo_Cliente_Evento(ID_Evento);
+        }
 
         public void Guardar_Boleta(int ID_Evento, DO_Boleta DOB)
         {

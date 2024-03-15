@@ -14,6 +14,7 @@ using DOMINIO;
 using System.Text;
 using CrystalDecisions.CrystalReports.Engine;
 using CrystalDecisions.Shared;
+using System.Web.Hosting;
 
 namespace PRESENTACION.Gestion_Alquiler
 {
@@ -23,6 +24,7 @@ namespace PRESENTACION.Gestion_Alquiler
     N_Equipo NEquipo = new N_Equipo();
     N_Tipo_Evento NTipoEvento = new N_Tipo_Evento();
     N_Conexion_BD NConexionBD = new N_Conexion_BD();
+    N_Email NEmail = new N_Email();
 
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -184,12 +186,14 @@ namespace PRESENTACION.Gestion_Alquiler
           if (rowcount == 0)
           {
             NEvento.Organizar_Evento(ID_Evento);
+            string correocliente = NEvento.Obtener_Correo_Cliente_Evento(ID_Evento);
+
             Limpiar();
             Llenar_Eventos();
 
             ReportDocument RepDoc = new ReportDocument();
             RepDoc.Load(Server.MapPath(@"~/Reportes/Boleta.rpt"));
-            RepDoc.SetParameterValue("@id", ID_Evento);            
+            RepDoc.SetParameterValue("@id", ID_Evento);
             RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", NConexionBD.getUser(), NConexionBD.getPassword());
             //RepDoc.DataSourceConnections[0].SetConnection(NConexionBD.getServidor(), "GESTION_ALQUILER", true);
             RepDoc.ExportToDisk(ExportFormatType.PortableDocFormat, Server.MapPath(@"~/Boleta/Boleta_" + ID_Evento + ".pdf"));
@@ -219,7 +223,19 @@ namespace PRESENTACION.Gestion_Alquiler
             DOC.Contrato = bytes2;
             fstream2.Close();
             NEvento.Guardar_Contrato(ID_Evento, DOC);
+             
+            /*INICIA ENVIO DE CORREO*/
+            System.Text.RegularExpressions.Regex regex = new System.Text.RegularExpressions.Regex(@"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$");
 
+            DO_Email email = new DO_Email();
+            email.Para = correocliente;
+            email.Asunto = "SWACE - BOLETA EMITIDA";
+            email.Contenido = @"<b>Se adjunta la boleta del evento organizado. ¡Muchas grácias por su preferencia!</b>";
+            email.Ubicacion_Archivo = HostingEnvironment.MapPath("~\\Boleta\\" + "Boleta" + "_" + ID_Evento + ".pdf");
+
+            //ScriptManager.RegisterStartupScript(this.Page, this.Page.GetType(), "Pop", "$('#popupIngresarCorreoParaMail').modal('hide');", true);
+            NEmail.EnviarMail(email);
+            /*TERMINA ENVIO DE CORREO*/
 
             /* Session["Diego"] = "~/Contrato/Contrato_" + ID_Evento + ".pdf";
              string _open2 = "window.open('Reporte.aspx', '_blank');";

@@ -12,11 +12,14 @@ namespace PRESENTACION.Gestion_Alquiler
   {
     protected void Page_Load(object sender, EventArgs e)
     {
-       
-        string n = (string)Session["Diego"];
-        Label1.Text = n;
-        Response.Redirect(n);
-    
+
+      string n = (string)Session["Diego"];
+      Label1.Text = n;
+      Response.Redirect(n);
+
+      string m = (string)Session["Barry"];
+      Label2.Text = m;
+      Response.Redirect(m);
     }
   }
 }
