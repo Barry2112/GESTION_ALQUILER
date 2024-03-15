@@ -181,29 +181,34 @@
     <Content Include="build\npm\Publish.js" />
     <Content Include="build\npm\vnu-jar.js" />
     <Content Include="dist\css\adminlte.css" />
+    <Content Include="dist\css\adminlte.css.map" />
     <Content Include="dist\css\adminlte.min.css" />
+    <Content Include="dist\css\adminlte.min.css.map" />
     <Content Include="dist\css\alt\adminlte.components.css" />
+    <Content Include="dist\css\alt\adminlte.components.css.map" />
     <Content Include="dist\css\alt\adminlte.components.min.css" />
+    <Content Include="dist\css\alt\adminlte.components.min.css.map" />
     <Content Include="dist\css\alt\adminlte.core.css" />
+    <Content Include="dist\css\alt\adminlte.core.css.map" />
     <Content Include="dist\css\alt\adminlte.core.min.css" />
+    <Content Include="dist\css\alt\adminlte.core.min.css.map" />
     <Content Include="dist\css\alt\adminlte.extra-components.css" />
+    <Content Include="dist\css\alt\adminlte.extra-components.css.map" />
     <Content Include="dist\css\alt\adminlte.extra-components.min.css" />
+    <Content Include="dist\css\alt\adminlte.extra-components.min.css.map" />
     <Content Include="dist\css\alt\adminlte.light.css" />
+    <Content Include="dist\css\alt\adminlte.light.css.map" />
     <Content Include="dist\css\alt\adminlte.light.min.css" />
+    <Content Include="dist\css\alt\adminlte.light.min.css.map" />
     <Content Include="dist\css\alt\adminlte.pages.css" />
+    <Content Include="dist\css\alt\adminlte.pages.css.map" />
     <Content Include="dist\css\alt\adminlte.pages.min.css" />
+    <Content Include="dist\css\alt\adminlte.pages.min.css.map" />
     <Content Include="dist\css\alt\adminlte.plugins.css" />
+    <Content Include="dist\css\alt\adminlte.plugins.css.map" />
     <Content Include="dist\css\alt\adminlte.plugins.min.css" />
-    <Content Include="dist\sb-admin-2\chartjs\Chart.bundle.js" />
-    <Content Include="dist\sb-admin-2\chartjs\Chart.bundle.min.js" />
-    <Content Include="dist\sb-admin-2\chartjs\Chart.js" />
-    <Content Include="dist\sb-admin-2\chartjs\Chart.min.js" />
-    <Content Include="dist\sb-admin-2\jquery\jquery.js" />
-    <Content Include="dist\sb-admin-2\jquery\jquery.min.js" />
-    <Content Include="dist\sb-admin-2\jquery\jquery.slim.js" />
-    <Content Include="dist\sb-admin-2\jquery\jquery.slim.min.js" />
-    <Content Include="dist\sb-admin-2\sb-admin-2.js" />
-    <Content Include="dist\sb-admin-2\sb-admin-2.min.css" />
+    <Content Include="dist\css\alt\adminlte.plugins.min.css.map" />
+    <Content Include="dist\css\gridview.css" />
     <Content Include="dist\img\AdminLTELogo.png" />
     <Content Include="dist\img\avatar.png" />
     <Content Include="dist\img\avatar2.png" />
@@ -239,12 +244,27 @@
     <Content Include="dist\img\user6-128x128.jpg" />
     <Content Include="dist\img\user7-128x128.jpg" />
     <Content Include="dist\img\user8-128x128.jpg" />
+    <Content Include="dist\js\.eslintrc.json" />
     <Content Include="dist\js\adminlte.js" />
+    <Content Include="dist\js\adminlte.js.map" />
     <Content Include="dist\js\adminlte.min.js" />
+    <Content Include="dist\js\adminlte.min.js.map" />
     <Content Include="dist\js\demo.js" />
     <Content Include="dist\js\pages\dashboard.js" />
     <Content Include="dist\js\pages\dashboard2.js" />
     <Content Include="dist\js\pages\dashboard3.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.bundle.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.bundle.min.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.js" />
+    <Content Include="dist\sb-admin-2\chartjs\Chart.min.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.min.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.min.map" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.slim.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.slim.min.js" />
+    <Content Include="dist\sb-admin-2\jquery\jquery.slim.min.map" />
+    <Content Include="dist\sb-admin-2\sb-admin-2.js" />
+    <Content Include="dist\sb-admin-2\sb-admin-2.min.css" />
     <Content Include="dist\sb-admin-2\sb-admin-2.min.js" />
     <Content Include="Gestion_Alquiler\Asignar_Equipo_Trabajador.aspx" />
     <Content Include="Gestion_Alquiler\Asignar_Trabajador_Evento.aspx" />
@@ -268,6 +288,144 @@
     <Content Include="Gestion_Alquiler\Revisar_Evento_Organizado.aspx" />
     <Content Include="iframe-dark.html" />
     <Content Include="iframe.html" />
+    <Content Include="Imagenes\aries_logo.png" />
+    <Content Include="Imagenes\aspa.PNG" />
+    <Content Include="Imagenes\check.PNG" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\BEAN\Cabeza movil_27.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\BEAN\Cabeza movil_28.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\BEAN\Cabeza movil_29.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\BEAN\Cabeza movil_30.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\BEAN\Cabeza movil_31.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\ELATION\Cabeza movil_32.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\ELATION\Cabeza movil_33.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\ELATION\Cabeza movil_34.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\SAILWIN\Cabeza movil_35.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\SAILWIN\Cabeza movil_36.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\SAILWIN\Cabeza movil_37.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Cabeza movil\SAILWIN\Cabeza movil_38.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara filmadora\CANON\Camara filmadora_1.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara filmadora\JVC\Camara filmadora_2.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara filmadora\JVC\Camara filmadora_3.JPG" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara filmadora\PANASONIC\Camara filmadora_4.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara filmadora\SONY\Camara filmadora_5.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara filmadora\SONY\Camara filmadora_6.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara fotografica\CANON\Camara fotografica_7.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara fotografica\CANON\Camara fotografica_8.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara fotografica\NIKON\Camara fotografica_10.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara fotografica\NIKON\Camara fotografica_9.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara fotografica\SONY\Camara fotografica_11.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara fotografica\SONY\Camara fotografica_12.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Camara fotografica\SONY\Camara fotografica_13.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Consola de sonido\PIONEER\Consola de sonido_16.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Consola de sonido\PIONEER\Consola de sonido_17.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Consola de sonido\PIONEER\Consola de sonido_18.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Consola de sonido\YAMAHA\Consola de sonido_14.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Consola de sonido\YAMAHA\Consola de sonido_15.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BODYGUGRD\Iluminacion LED_42.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BODYGUGRD\Iluminacion LED_43.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BODYGUGRD\Iluminacion LED_44.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BODYGUGRD\Iluminacion LED_45.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BODYGUGRD\Iluminacion LED_46.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BRAVE WARRIOR\Iluminacion LED_47.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BRAVE WARRIOR\Iluminacion LED_48.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\BRAVE WARRIOR\Iluminacion LED_49.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Iluminacion LED\TWIST\Iluminacion LED_50.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\JBL\Parlantes_24.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\JBL\Parlantes_25.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\JBL\Parlantes_26.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\YAMAHA\Parlantes_19.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\YAMAHA\Parlantes_20.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\YAMAHA\Parlantes_21.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\YAMAHA\Parlantes_22.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Parlantes\YAMAHA\Parlantes_23.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Proyectores\EPSON\Proyector_39.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Proyectores\EPSON\Proyector_40.jpg" />
+    <Content Include="Imagenes\Equipos\01_Estructura\Proyectores\EPSON\Proyector_41.jpg" />
+    <Content Include="Imagenes\Equipos\Apellido_Prueba_71523412_10.jpg" />
+    <Content Include="Imagenes\Equipos\aries_logo.png" />
+    <Content Include="Imagenes\Equipos\aspa.PNG" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\BEAN\Cabeza movil_27.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\BEAN\Cabeza movil_28.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\BEAN\Cabeza movil_29.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\BEAN\Cabeza movil_30.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\BEAN\Cabeza movil_31.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\ELATION\Cabeza movil_32.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\ELATION\Cabeza movil_33.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\ELATION\Cabeza movil_34.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\SAILWIN\Cabeza movil_35.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\SAILWIN\Cabeza movil_36.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\SAILWIN\Cabeza movil_37.jpg" />
+    <Content Include="Imagenes\Equipos\Cabeza movil\SAILWIN\Cabeza movil_38.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\CANON\Camara filmadora_1.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\CANON\Camara filmadora_57.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\JVC\Camara filmadora_2.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\JVC\Camara filmadora_3.JPG" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\JVC\Camara filmadora_57.JPG" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\PANASONIC\Camara filmadora_4.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\PANASONIC\Camara filmadora_57.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\SONY\Camara filmadora_5.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\SONY\Camara filmadora_57.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\SONY\Camara filmadora_58.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\SONY\Camara filmadora_59.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\SONY\Camara filmadora_6.jpg" />
+    <Content Include="Imagenes\Equipos\Camara filmadora\SONY\Camara filmadora_60.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\CANON\Camara fotografica_7.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\CANON\Camara fotografica_8.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\NIKON\Camara fotografica_10.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\NIKON\Camara fotografica_58.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\NIKON\Camara fotografica_9.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\SONY\Camara fotografica_11.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\SONY\Camara fotografica_12.jpg" />
+    <Content Include="Imagenes\Equipos\Camara fotografica\SONY\Camara fotografica_13.jpg" />
+    <Content Include="Imagenes\Equipos\Castillo_Pedro_74141412_10.jpg" />
+    <Content Include="Imagenes\Equipos\Castle_Frank_74546598_12.jpg" />
+    <Content Include="Imagenes\Equipos\check.PNG" />
+    <Content Include="Imagenes\Equipos\Consola de sonido\PIONEER\Consola de sonido_16.jpg" />
+    <Content Include="Imagenes\Equipos\Consola de sonido\PIONEER\Consola de sonido_17.jpg" />
+    <Content Include="Imagenes\Equipos\Consola de sonido\PIONEER\Consola de sonido_18.jpg" />
+    <Content Include="Imagenes\Equipos\Consola de sonido\YAMAHA\Consola de sonido_14.jpg" />
+    <Content Include="Imagenes\Equipos\Consola de sonido\YAMAHA\Consola de sonido_15.jpg" />
+    <Content Include="Imagenes\Equipos\Cuba_Maria_74714875_11.jpg" />
+    <Content Include="Imagenes\Equipos\Equipo_Sin_Imagen.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BODYGUGRD\Iluminacion LED_42.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BODYGUGRD\Iluminacion LED_43.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BODYGUGRD\Iluminacion LED_44.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BODYGUGRD\Iluminacion LED_45.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BODYGUGRD\Iluminacion LED_46.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BRAVE WARRIOR\Iluminacion LED_47.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BRAVE WARRIOR\Iluminacion LED_48.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\BRAVE WARRIOR\Iluminacion LED_49.jpg" />
+    <Content Include="Imagenes\Equipos\Iluminacion LED\TWIST\Iluminacion LED_50.jpg" />
+    <Content Include="Imagenes\Equipos\Lambda_Piero_74125898_12_12.jpg" />
+    <Content Include="Imagenes\Equipos\MARADONA_DIEGO_75361323_11.jpg" />
+    <Content Include="Imagenes\Equipos\Otro\ZFOGGER\Otro_51.jpg" />
+    <Content Include="Imagenes\Equipos\Otro\ZFOGGER\Otro_52.jpg" />
+    <Content Include="Imagenes\Equipos\Otro\ZFOGGER\Otro_53.jpg" />
+    <Content Include="Imagenes\Equipos\Otro\ZFOGGER\Otro_54.jpg" />
+    <Content Include="Imagenes\Equipos\Otro\ZFOGGER\Otro_55.jpg" />
+    <Content Include="Imagenes\Equipos\Otro\ZFOGGER\Otro_56.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\JBL\Parlantes_24.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\JBL\Parlantes_25.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\JBL\Parlantes_26.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\YAMAHA\Parlantes_19.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\YAMAHA\Parlantes_20.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\YAMAHA\Parlantes_21.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\YAMAHA\Parlantes_22.jpg" />
+    <Content Include="Imagenes\Equipos\Parlantes\YAMAHA\Parlantes_23.jpg" />
+    <Content Include="Imagenes\Equipos\perez sosa_dayana_75478645_13.jpg" />
+    <Content Include="Imagenes\Equipos\Proyectores\EPSON\Proyectores_39.jpg" />
+    <Content Include="Imagenes\Equipos\Proyectores\EPSON\Proyectores_40.jpg" />
+    <Content Include="Imagenes\Equipos\Proyectores\EPSON\Proyectores_41.jpg" />
+    <Content Include="Imagenes\Equipos\questions.png" />
+    <Content Include="Imagenes\Equipos\Usuario_Sin_Imagen.jpg" />
+    <Content Include="Imagenes\questions.png" />
+    <Content Include="Imagenes\Usuarios\Apellido_Prueba_71523412_10.jpg" />
+    <Content Include="Imagenes\Usuarios\Castle_Frank_74546598_12.jpg" />
+    <Content Include="Imagenes\Usuarios\Cuba_Maria_74714875_11.jpg" />
+    <Content Include="Imagenes\Usuarios\Lambda_Piero_74125898_12_12.jpg" />
+    <Content Include="Imagenes\Usuarios\MARADONA_DIEGO_75361323_11.jpg" />
+    <Content Include="Imagenes\Usuarios\perez sosa_dayana_75478645_13.jpg" />
+    <Content Include="Imagenes\Usuarios\Usuario_Sin_Imagen.jpg" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css" />
     <Content Include="plugins\bootstrap-colorpicker\js\bootstrap-colorpicker.js" />
@@ -2436,25 +2594,42 @@
     <Content Include="Dockerfile" />
     <Content Include="package-lock.json" />
     <Content Include="package.json" />
-    <Content Include="dist\css\adminlte.css.map" />
-    <Content Include="dist\css\adminlte.min.css.map" />
-    <Content Include="dist\css\alt\adminlte.components.css.map" />
-    <Content Include="dist\css\alt\adminlte.components.min.css.map" />
-    <Content Include="dist\css\alt\adminlte.core.css.map" />
-    <Content Include="dist\css\alt\adminlte.core.min.css.map" />
-    <Content Include="dist\css\alt\adminlte.extra-components.css.map" />
-    <Content Include="dist\css\alt\adminlte.extra-components.min.css.map" />
-    <Content Include="dist\css\alt\adminlte.light.css.map" />
-    <Content Include="dist\css\alt\adminlte.light.min.css.map" />
-    <Content Include="dist\css\alt\adminlte.pages.css.map" />
-    <Content Include="dist\css\alt\adminlte.pages.min.css.map" />
-    <Content Include="dist\css\alt\adminlte.plugins.css.map" />
-    <Content Include="dist\css\alt\adminlte.plugins.min.css.map" />
-    <Content Include="dist\js\.eslintrc.json" />
-    <Content Include="dist\js\adminlte.js.map" />
-    <Content Include="dist\js\adminlte.min.js.map" />
-    <Content Include="dist\sb-admin-2\jquery\jquery.min.map" />
-    <Content Include="dist\sb-admin-2\jquery\jquery.slim.min.map" />
+    <Content Include="Documento_Satisfaccion\Acta_Conformidad_16.pdf" />
+    <Content Include="Documento_Satisfaccion\Acta_Conformidad_2.pdf" />
+    <Content Include="Documento_Satisfaccion\Acta_Conformidad_26.pdf" />
+    <Content Include="Documento_Satisfaccion\Acta_Conformidad_30.pdf" />
+    <Content Include="Cotizacion\Cotizacion_10.pdf" />
+    <Content Include="Cotizacion\Cotizacion_11.pdf" />
+    <Content Include="Cotizacion\Cotizacion_12.pdf" />
+    <Content Include="Cotizacion\Cotizacion_13.pdf" />
+    <Content Include="Cotizacion\Cotizacion_14.pdf" />
+    <Content Include="Cotizacion\Cotizacion_15.pdf" />
+    <Content Include="Cotizacion\Cotizacion_16.pdf" />
+    <Content Include="Cotizacion\Cotizacion_17.pdf" />
+    <Content Include="Cotizacion\Cotizacion_18.pdf" />
+    <Content Include="Cotizacion\Cotizacion_24.pdf" />
+    <Content Include="Cotizacion\Cotizacion_25.pdf" />
+    <Content Include="Cotizacion\Cotizacion_4.pdf" />
+    <Content Include="Cotizacion\Cotizacion_5.pdf" />
+    <Content Include="Cotizacion\Cotizacion_6.pdf" />
+    <Content Include="Cotizacion\Cotizacion_7.pdf" />
+    <Content Include="Cotizacion\Cotizacion_9.pdf" />
+    <Content Include="Contrato\Contrato_16.pdf" />
+    <Content Include="Contrato\Contrato_21.pdf" />
+    <Content Include="Contrato\Contrato_23.pdf" />
+    <Content Include="Contrato\Contrato_26.pdf" />
+    <Content Include="Contrato\Contrato_27.pdf" />
+    <Content Include="Contrato\Contrato_29.pdf" />
+    <Content Include="Contrato\Contrato_30.pdf" />
+    <Content Include="Contrato\Contrato_31.pdf" />
+    <Content Include="Boleta\Boleta_16.pdf" />
+    <Content Include="Boleta\Boleta_21.pdf" />
+    <Content Include="Boleta\Boleta_23.pdf" />
+    <Content Include="Boleta\Boleta_26.pdf" />
+    <Content Include="Boleta\Boleta_27.pdf" />
+    <Content Include="Boleta\Boleta_29.pdf" />
+    <Content Include="Boleta\Boleta_30.pdf" />
+    <Content Include="Boleta\Boleta_31.pdf" />
     <None Include="packages.config" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.css.map" />
     <Content Include="plugins\bootstrap-colorpicker\css\bootstrap-colorpicker.min.css.map" />
@@ -2572,7 +2747,6 @@
     <Content Include="plugins\summernote\summernote.js.map" />
     <Content Include="plugins\summernote\summernote.min.js.map" />
     <Content Include="plugins\toastr\toastr.js.map" />
-    <None Include="Properties\PublishProfiles\PRESENTACION20240314171554 - Web Deploy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -2591,13 +2765,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Boleta\" />
-    <Folder Include="Contrato\" />
-    <Folder Include="Cotizacion\" />
-    <Folder Include="Documento_Satisfaccion\" />
-    <Folder Include="Imagenes\Equipos\" />
-    <Folder Include="Imagenes\Usuarios\" />
     <Folder Include="Nota_Credito\" />
+    <Folder Include="Properties\PublishProfiles\" />
     <Folder Include="SQL\" />
   </ItemGroup>
   <ItemGroup>
@@ -2632,6 +2801,44 @@
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <LangVersion>7.3</LangVersion>
+    <ErrorReport>prompt</ErrorReport>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
